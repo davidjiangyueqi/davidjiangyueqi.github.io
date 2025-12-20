@@ -34,6 +34,19 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify build output
+        run: |
+          if [ ! -f "dist/index.html" ]; then
+            echo "Error: dist/index.html not found"
+            exit 1
+          fi
+          if [ ! -f "dist/.nojekyll" ]; then
+            echo "Error: dist/.nojekyll not found"
+            exit 1
+          fi
+          echo "Build verification successful"
+          ls -la dist/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
