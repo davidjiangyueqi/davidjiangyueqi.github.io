@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     react(),
     (() => {
-      let outDir = "dist"; // Default fallback
+      let outDir = "docs"; // Default fallback, kept in sync with build.outDir below
       return {
         name: "github-pages",
         apply: "build", // Only run during build, not during dev server
@@ -27,6 +27,11 @@ export default defineConfig({
     })(),
   ],
   base: "/",
+  // Build directly into "docs" so GitHub Pages can serve from
+  // the /docs folder on the main branch.
+  build: {
+    outDir: "docs",
+  },
 });
 
 

@@ -37,33 +37,33 @@ jobs:
 
       - name: Verify build output
         run: |
-          if [ ! -f "dist/index.html" ]; then
-            echo "Error: dist/index.html not found"
+          if [ ! -f "docs/index.html" ]; then
+            echo "Error: docs/index.html not found"
             exit 1
           fi
-          if [ ! -f "dist/.nojekyll" ]; then
-            echo "Error: dist/.nojekyll not found"
+          if [ ! -f "docs/.nojekyll" ]; then
+            echo "Error: docs/.nojekyll not found"
             exit 1
           fi
           echo "Build verification successful"
-          echo "Contents of dist/index.html:"
-          head -10 dist/index.html
+          echo "Contents of docs/index.html:"
+          head -10 docs/index.html
           echo ""
-          echo "Files in dist/:"
-          ls -la dist/
+          echo "Files in docs/:"
+          ls -la docs/
           echo ""
           echo "Checking for dev script tag (should NOT exist):"
-          if grep -q "/src/main.tsx" dist/index.html; then
-            echo "ERROR: dist/index.html contains dev script tag!"
+          if grep -q "/src/main.tsx" docs/index.html; then
+            echo "ERROR: docs/index.html contains dev script tag!"
             exit 1
           else
-            echo "✓ dist/index.html is correct (no dev script tag)"
+            echo "✓ docs/index.html is correct (no dev script tag)"
           fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: docs
 
   deploy:
     environment:
