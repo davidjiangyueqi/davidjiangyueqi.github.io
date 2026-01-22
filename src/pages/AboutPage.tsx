@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { bio } from "../data/bio";
 
 function AnimatedBioParagraph({
@@ -9,17 +8,11 @@ function AnimatedBioParagraph({
   paragraph: string;
   index: number;
 }) {
-  const paragraphRef = useRef(null);
-  const paragraphInView = useInView(paragraphRef, {
-    once: true,
-    amount: 0.3,
-  });
-
   return (
     <motion.p
-      ref={paragraphRef}
       initial={{ opacity: 0, y: 20 }}
-      animate={paragraphInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{
         duration: 1,
         ease: [0.25, 0.1, 0.25, 1],
@@ -38,8 +31,6 @@ function AnimatedBioParagraph({
 }
 
 export function AboutPage() {
-  const bioSectionRef = useRef(null);
-  const bioInView = useInView(bioSectionRef, { once: true, amount: 0.3 });
 
   return (
     <div className="space-y-12">
@@ -85,9 +76,9 @@ export function AboutPage() {
 
       {/* Poetic Bio Section */}
       <motion.section
-        ref={bioSectionRef}
         initial={{ opacity: 0, y: 20 }}
-        animate={bioInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{
           duration: 1,
           ease: [0.25, 0.1, 0.25, 1],
