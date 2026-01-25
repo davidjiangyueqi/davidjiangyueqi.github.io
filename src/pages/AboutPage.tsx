@@ -1,5 +1,9 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { bio } from "../data/bio";
+import { BioTabs } from "../components/BioTabs";
+
+type Tab = "piano" | "epicure";
 
 function AnimatedBioParagraph({
   paragraph,
@@ -31,6 +35,9 @@ function AnimatedBioParagraph({
 }
 
 export function AboutPage() {
+  const [activeTab, setActiveTab] = useState<Tab>("piano");
+
+  const currentContent = activeTab === "piano" ? bio.piano : bio.epicure;
 
   return (
     <div className="space-y-12">
@@ -74,8 +81,8 @@ export function AboutPage() {
         </motion.p>
       </header>
 
-      {/* Poetic Bio Section */}
-      <motion.section
+      {/* Tab Navigation */}
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -84,19 +91,46 @@ export function AboutPage() {
           ease: [0.25, 0.1, 0.25, 1],
           delay: 0.6,
         }}
+        className="mx-auto max-w-2xl"
+      >
+        <BioTabs activeTab={activeTab} onTabChange={setActiveTab} />
+      </motion.div>
+
+      {/* Bio Content Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          duration: 1,
+          ease: [0.25, 0.1, 0.25, 1],
+          delay: 0.8,
+        }}
         className="glass-panel relative overflow-hidden rounded-3xl p-8 sm:p-12 md:p-16"
       >
         <div className="pointer-events-none absolute -left-10 top-0 h-40 w-40 rounded-full bg-black/20 blur-3xl" />
         <div className="relative mx-auto max-w-4xl">
-          <div className="space-y-8 sm:space-y-12">
-            {bio.long.map((paragraph, idx) => (
-              <AnimatedBioParagraph
-                key={idx}
-                paragraph={paragraph}
-                index={idx}
-              />
-            ))}
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{
+                duration: 0.5,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="space-y-8 sm:space-y-12"
+            >
+              {currentContent.map((paragraph, idx) => (
+                <AnimatedBioParagraph
+                  key={idx}
+                  paragraph={paragraph}
+                  index={idx}
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </motion.section>
     </div>
