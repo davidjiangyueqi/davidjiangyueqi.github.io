@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import { writeFileSync, copyFileSync, mkdirSync, existsSync, readdirSync, statSync } from "fs";
+import { writeFileSync } from "fs";
 import { resolve, join } from "path";
+import { createReadStream, statSync } from "fs";
 
 // Set `base` to your repository name when deploying as a project page, e.g. "/pianist-gastronomist-site/".
 // For a user/organization site (username.github.io), you can leave it as "/".
@@ -25,44 +26,48 @@ export default defineConfig({
         },
       };
     })(),
-    // Copy photos from docs/photos to public/photos during dev and build
+    // Serve photos directly from docs/photos during development
     (() => {
-      const copyPhotos = () => {
-        const docsPhotosPath = resolve(process.cwd(), "docs", "photos");
-        const publicPhotosPath = resolve(process.cwd(), "public", "photos");
-        
-        if (!existsSync(docsPhotosPath)) return;
-        
-        const copyRecursive = (src: string, dest: string) => {
-          if (!existsSync(dest)) {
-            mkdirSync(dest, { recursive: true });
-          }
-          
-          const entries = readdirSync(src, { withFileTypes: true });
-          
-          for (const entry of entries) {
-            const srcPath = join(src, entry.name);
-            const destPath = join(dest, entry.name);
-            
-            if (entry.isDirectory()) {
-              copyRecursive(srcPath, destPath);
-            } else {
-              copyFileSync(srcPath, destPath);
-            }
-          }
-        };
-        
-        copyRecursive(docsPhotosPath, publicPhotosPath);
-      };
-      
       return {
-        name: "copy-photos",
-        buildStart() {
-          copyPhotos();
-        },
+        name: "serve-docs-photos",
         configureServer(server) {
-          // Copy photos on dev server start
-          copyPhotos();
+          server.middlewares.use((req, res, next) => {
+            // If request is for /photos/, serve from docs/photos/
+            if (req.url?.startsWith("/photos/")) {
+              try {
+                // Decode URL-encoded characters (e.g., %20 -> space)
+                const decodedUrl = decodeURIComponent(req.url);
+                // Remove leading slash and join with docs directory
+                // Using join() instead of resolve() to avoid absolute path issues
+                const relativePath = decodedUrl.startsWith("/") 
+                  ? decodedUrl.slice(1) 
+                  : decodedUrl;
+                const filePath = join(process.cwd(), "docs", relativePath);
+                
+                const stats = statSync(filePath);
+                if (stats.isFile()) {
+                  // Simple MIME type detection based on file extension
+                  const ext = filePath.split('.').pop()?.toLowerCase();
+                  const mimeTypes: Record<string, string> = {
+                    'jpg': 'image/jpeg',
+                    'jpeg': 'image/jpeg',
+                    'png': 'image/png',
+                    'gif': 'image/gif',
+                    'webp': 'image/webp',
+                    'heic': 'image/heic',
+                  };
+                  const mimeType = mimeTypes[ext || ''] || 'application/octet-stream';
+                  res.setHeader("Content-Type", mimeType);
+                  res.setHeader("Content-Length", stats.size);
+                  createReadStream(filePath).pipe(res);
+                  return;
+                }
+              } catch (err) {
+                // File doesn't exist, continue to next middleware
+              }
+            }
+            next();
+          });
         },
       };
     })(),
@@ -72,6 +77,8 @@ export default defineConfig({
   // the /docs folder on the main branch.
   build: {
     outDir: "docs",
+    // Photos are already in docs/photos, so they'll be in the build output
+    copyPublicDir: false, // Don't copy public dir since we're using docs/photos directly
   },
 });
 
