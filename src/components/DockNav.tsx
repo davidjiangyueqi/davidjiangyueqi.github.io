@@ -78,23 +78,23 @@ export function DockNav() {
                     to={item.to}
                     className={`flex h-11 w-11 items-center justify-center rounded-2xl border transition-colors ${
                       isActive
-                        ? "border-white/60 bg-white/20"
-                        : "border-slate-700/60 bg-black/60 hover:border-slate-400/80"
+                        ? "border-white/30 bg-white/20"
+                        : "border-white/20 bg-white/10 hover:bg-white/20 hover:border-white/30"
                     }`}
                   >
-                    <Icon className="h-5 w-5 text-slate-100" />
+                    <Icon className="h-5 w-5 text-white/90" />
                   </Link>
                   <motion.span
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 2 }}
-                    className="mt-1 text-[0.7rem] text-slate-200/80"
+                    className="mt-1 text-[0.7rem] text-white/80"
                   >
                     {item.label}
                   </motion.span>
                   {isActive && (
                     <motion.div
                       layoutId="dock-active-indicator"
-                      className="mt-1 h-1 w-1 rounded-full bg-white"
+                      className="mt-1 h-1 w-1 rounded-full bg-white/90"
                     />
                   )}
                 </motion.div>

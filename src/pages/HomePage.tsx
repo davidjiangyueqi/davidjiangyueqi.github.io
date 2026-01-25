@@ -50,7 +50,7 @@ function ImageSection({ photo }: { photo: Photo }) {
           className="text-center"
         >
           {/* Small label for the main hero image */}
-          {photo.id === "portrait-1" && (
+          {photo.id === "piano-1" && (
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
@@ -99,7 +99,7 @@ function ImageSection({ photo }: { photo: Photo }) {
           </motion.p>
 
           {/* Extra copy + links for the main hero image */}
-          {photo.id === "portrait-1" && (
+          {photo.id === "piano-1" && (
             <>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -138,13 +138,13 @@ function ImageSection({ photo }: { photo: Photo }) {
               >
                 <Link
                   to="/about"
-                  className="rounded-full bg-black px-4 py-2 text-slate-50 transition hover:bg-gray-900"
+                  className="rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 text-white/90 transition hover:bg-white/20 hover:border-white/30"
                 >
                   About Me
                 </Link>
                 <Link
                   to="/food"
-                  className="rounded-full bg-black px-4 py-2 text-slate-50 transition hover:bg-gray-900"
+                  className="rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 text-white/90 transition hover:bg-white/20 hover:border-white/30"
                 >
                   Read My Culinary Journeys
                 </Link>
@@ -153,7 +153,7 @@ function ImageSection({ photo }: { photo: Photo }) {
           )}
 
           {/* Call-to-action for the performances image */}
-          {photo.id === "music-1" && (
+          {photo.id === "piano-2" && (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
@@ -166,14 +166,14 @@ function ImageSection({ photo }: { photo: Photo }) {
             >
               <Link
                 to="/music"
-                className="rounded-full bg-black px-4 py-2 text-slate-50 transition hover:bg-gray-900"
+                className="rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 text-white/90 transition hover:bg-white/20 hover:border-white/30"
               >
                 Explore My Music
               </Link>
             </motion.div>
           )}
 
-          {/* Call-to-action for the contact image */}
+          {/* Call-to-action for the food image */}
           {photo.id === "food-1" && (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -186,8 +186,29 @@ function ImageSection({ photo }: { photo: Photo }) {
               className="mt-6 flex justify-center text-sm"
             >
               <Link
+                to="/food"
+                className="rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 text-white/90 transition hover:bg-white/20 hover:border-white/30"
+              >
+                Explore My Culinary Journeys
+              </Link>
+            </motion.div>
+          )}
+
+          {/* Call-to-action for the contact image */}
+          {photo.id === "piano-3" && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+              transition={{
+                duration: 1,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.9,
+              }}
+              className="mt-6 flex justify-center text-sm"
+            >
+              <Link
                 to="/contact"
-                className="rounded-full bg-black px-4 py-2 text-slate-50 transition hover:bg-gray-900"
+                className="rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 text-white/90 transition hover:bg-white/20 hover:border-white/30"
               >
                 CONNECT WITH ME
               </Link>
@@ -202,23 +223,30 @@ function ImageSection({ photo }: { photo: Photo }) {
 export function HomePage() {
   const photos = [
     {
-      id: "portrait-1",
-      alt: "Portrait placeholder",
-      src: "/photos/portraits/portrait-1.jpg",
+      id: "piano-1",
+      alt: "Piano performance",
+      src: "/photos/piano/hori_bio.JPG",
       title: "Divad Wash",
       subtitle: "Music at the keyboard, stories at the table.",
     },
     {
-      id: "music-1",
-      alt: "Performance placeholder",
-      src: "/photos/music/performance-1.jpg",
+      id: "piano-2",
+      alt: "Piano performance",
+      src: "/photos/piano/hori_bio1_mask.JPG",
       title: "performances",
       subtitle: "music in motion",
     },
     {
       id: "food-1",
-      alt: "Food placeholder",
-      src: "/photos/food/food-1.jpg",
+      alt: "Food and wine",
+      src: "/photos/food-wine/Kiln1.jpg",
+      title: "culinary journeys",
+      subtitle: "stories at the table",
+    },
+    {
+      id: "piano-3",
+      alt: "Piano hands",
+      src: "/photos/piano/hori_hands.JPG",
       title: "Connect",
       subtitle: "Work with me",
     },

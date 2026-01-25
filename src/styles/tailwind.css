@@ -10,7 +10,7 @@
 
 @layer utilities {
   .glass-panel {
-    @apply bg-black/70 border border-slate-700/60 backdrop-blur-md;
+    @apply bg-white/10 border border-white/20 backdrop-blur-sm;
   }
 
   .gradient-orbit {
