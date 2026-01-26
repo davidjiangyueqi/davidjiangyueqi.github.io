@@ -225,14 +225,14 @@ export function HomePage() {
     {
       id: "piano-1",
       alt: "Piano performance",
-      src: "/photos/piano/hori_bio.JPG",
+      src: "/photos/piano/hori_black_white_fuzzy.JPG",
       title: "Divad Wash",
       subtitle: "Music at the keyboard, stories at the table.",
     },
     {
       id: "piano-2",
       alt: "Piano performance",
-      src: "/photos/piano/hori_bio1_mask.JPG",
+      src: "/photos/piano/hori_bio.JPG",
       title: "performances",
       subtitle: "music in motion",
     },
