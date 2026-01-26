@@ -9,48 +9,60 @@ interface BioTabsProps {
 
 export function BioTabs({ activeTab, onTabChange }: BioTabsProps) {
   return (
-    <div className="glass-panel rounded-3xl p-2">
-      <div className="relative flex gap-2">
-        {/* Active tab indicator */}
-        <motion.div
-          layoutId="activeTab"
-          className="absolute inset-y-2 rounded-2xl border border-white/30 bg-white/10"
-          initial={false}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 30,
-          }}
-          style={{
-            width: "calc(50% - 4px)",
-            left: activeTab === "piano" ? "4px" : "calc(50% + 4px)",
-          }}
-        />
-        
-        {/* Piano Tab */}
-        <button
-          onClick={() => onTabChange("piano")}
-          className={`relative z-10 flex-1 rounded-2xl px-6 py-3 text-sm font-medium transition-colors ${
+    <div className="flex items-center gap-8 border-b border-white/10 pb-3">
+      <button
+        onClick={() => onTabChange("piano")}
+        className="relative text-sm font-medium transition-colors"
+      >
+        <span
+          className={
             activeTab === "piano"
               ? "text-white"
               : "text-slate-400 hover:text-slate-200"
-          }`}
+          }
         >
           Piano
-        </button>
-        
-        {/* Epicure Tab */}
-        <button
-          onClick={() => onTabChange("epicure")}
-          className={`relative z-10 flex-1 rounded-2xl px-6 py-3 text-sm font-medium transition-colors ${
+        </span>
+        {activeTab === "piano" && (
+          <motion.div
+            layoutId="activeTab"
+            className="absolute -bottom-3 left-0 right-0 h-0.5 bg-white"
+            initial={false}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+            }}
+          />
+        )}
+      </button>
+      
+      <button
+        onClick={() => onTabChange("epicure")}
+        className="relative text-sm font-medium transition-colors"
+      >
+        <span
+          className={
             activeTab === "epicure"
               ? "text-white"
               : "text-slate-400 hover:text-slate-200"
-          }`}
+          }
         >
           Epicure
-        </button>
-      </div>
+        </span>
+        {activeTab === "epicure" && (
+          <motion.div
+            layoutId="activeTab"
+            className="absolute -bottom-3 left-0 right-0 h-0.5 bg-white"
+            initial={false}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+            }}
+          />
+        )}
+      </button>
     </div>
   );
 }
