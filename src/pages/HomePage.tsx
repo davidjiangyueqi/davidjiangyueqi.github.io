@@ -226,7 +226,7 @@ export function HomePage() {
       id: "piano-1",
       alt: "Piano performance",
       src: "/photos/piano/hori_black_white_fuzzy.JPG",
-      title: "Divad Wash",
+      title: "David Shaw",
       subtitle: "Music at the keyboard, stories at the table.",
     },
     {
