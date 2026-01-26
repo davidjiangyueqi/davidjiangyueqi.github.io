@@ -11,6 +11,7 @@ interface BioImage {
   float: "left" | "right";
   width: string;
   paragraphIndex: number;
+  isLandscape?: boolean;
 }
 
 const pianoImages: BioImage[] = [
@@ -18,15 +19,41 @@ const pianoImages: BioImage[] = [
     src: "/photos/piano/vert_bio1.JPG",
     alt: "David Shaw at the piano",
     float: "right",
-    width: "w-56 sm:w-64 md:w-72",
+    width: "w-64 sm:w-72 md:w-80 lg:w-96",
     paragraphIndex: 0,
+    isLandscape: false,
+  },
+  {
+    src: "/photos/piano/hori_bio.JPG",
+    alt: "David Shaw performing",
+    float: "left",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
+    paragraphIndex: 1,
+    isLandscape: true,
   },
   {
     src: "/photos/piano/hori_hands.JPG",
     alt: "Piano hands",
-    float: "left",
-    width: "w-56 sm:w-64 md:w-72",
+    float: "right",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
     paragraphIndex: 2,
+    isLandscape: true,
+  },
+  {
+    src: "/photos/piano/hori_bio1_mask.JPG",
+    alt: "Piano performance",
+    float: "left",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
+    paragraphIndex: 3,
+    isLandscape: true,
+  },
+  {
+    src: "/photos/piano/hori_black_white_fuzzy.JPG",
+    alt: "Concert performance",
+    float: "right",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
+    paragraphIndex: 4,
+    isLandscape: true,
   },
 ];
 
@@ -35,29 +62,73 @@ const epicureImages: BioImage[] = [
     src: "/photos/my_dishes/vert_2_CHAWANMUSHI.jpg",
     alt: "Chawanmushi dish",
     float: "left",
-    width: "w-48 sm:w-56 md:w-64",
+    width: "w-64 sm:w-72 md:w-80 lg:w-96",
     paragraphIndex: 0,
+    isLandscape: false,
   },
   {
     src: "/photos/food-wine/Atomix.jpg",
     alt: "Atomix restaurant",
     float: "right",
-    width: "w-56 sm:w-64 md:w-72",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
     paragraphIndex: 1,
+    isLandscape: true,
   },
   {
-    src: "/photos/food-wine/Kiln1.jpg",
-    alt: "Kiln restaurant",
+    src: "/photos/food-wine/The Modern.jpg",
+    alt: "The Modern restaurant",
     float: "left",
-    width: "w-56 sm:w-64 md:w-72",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
+    paragraphIndex: 1,
+    isLandscape: true,
+  },
+  {
+    src: "/photos/my_dishes/vert_3_lobster.jpg",
+    alt: "Lobster dish",
+    float: "right",
+    width: "w-64 sm:w-72 md:w-80 lg:w-96",
     paragraphIndex: 2,
+    isLandscape: false,
+  },
+  {
+    src: "/photos/food-wine/Sushi2.jpg",
+    alt: "Sushi",
+    float: "left",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
+    paragraphIndex: 2,
+    isLandscape: true,
   },
   {
     src: "/photos/my_dishes/vert_4_pear.jpg",
     alt: "Pear dish",
     float: "right",
-    width: "w-48 sm:w-56 md:w-64",
+    width: "w-64 sm:w-72 md:w-80 lg:w-96",
     paragraphIndex: 3,
+    isLandscape: false,
+  },
+  {
+    src: "/photos/food-wine/Amber.JPG",
+    alt: "Amber restaurant",
+    float: "left",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
+    paragraphIndex: 3,
+    isLandscape: true,
+  },
+  {
+    src: "/photos/food-wine/krug_collection_1985.jpg",
+    alt: "Krug Collection 1985",
+    float: "right",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
+    paragraphIndex: 4,
+    isLandscape: true,
+  },
+  {
+    src: "/photos/my_dishes/hori_2_oyster.jpg",
+    alt: "Oyster dish",
+    float: "left",
+    width: "w-80 sm:w-96 md:w-[28rem] lg:w-[32rem]",
+    paragraphIndex: 4,
+    isLandscape: true,
   },
 ];
 
@@ -73,10 +144,10 @@ function BioImageComponent({ image }: { image: BioImage }) {
       }}
       src={image.src}
       alt={image.alt}
-      className={`${image.width} mb-4 rounded-lg object-cover shadow-lg sm:mb-4 ${
+      className={`${image.width} mb-4 rounded-lg object-cover shadow-lg sm:mb-6 ${
         image.float === "left"
-          ? "float-none sm:float-left sm:mr-6"
-          : "float-none sm:float-right sm:ml-6"
+          ? "float-none sm:float-left sm:mr-8"
+          : "float-none sm:float-right sm:ml-8"
       }`}
       style={{
         shapeOutside: "margin-box",
