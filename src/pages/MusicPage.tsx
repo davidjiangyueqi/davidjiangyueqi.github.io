@@ -1,119 +1,212 @@
-import { HeroHeader } from "../components/HeroHeader";
-import { SectionHeader } from "../components/SectionHeader";
+import { motion } from "framer-motion";
 import { awards } from "../data/awards";
 import { selectedPastPerformances, upcomingPerformances } from "../data/performances";
-import { videos } from "../data/videos";
+import { LIVE_STREAM } from "../data/live";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } }
+};
 
 export function MusicPage() {
   return (
-    <div className="space-y-10">
-      <HeroHeader
-        title="Music"
-        subtitle="Awards, performances, and recordings gathered in one place."
-      />
+    <div className="min-h-screen bg-black text-white selection:bg-white/20">
+      <div className="mx-auto max-w-5xl px-4 py-24 sm:px-6 lg:px-8">
+        
+        {/* Artistic Hero Section */}
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="mb-32 text-center"
+        >
+          <h1 
+            className="text-6xl font-light lowercase tracking-[0.2em] sm:text-7xl md:text-8xl"
+            style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+          >
+            music
+          </h1>
+          <p className="mt-8 text-sm uppercase tracking-[0.3em] text-slate-400">
+            Stages &bull; Echoes &bull; Honors
+          </p>
+        </motion.div>
 
-      <section className="space-y-4">
-        <SectionHeader
-          eyebrow="Highlights"
-          title="Selected awards"
-          description="A few anchor points from competitions and festivals. Replace these entries with your own history."
-        />
-        <div className="grid gap-3 sm:grid-cols-2">
-          {awards.map((award) => (
-            <div
-              key={`${award.year}-${award.title}`}
-              className="rounded-2xl border border-slate-800 bg-black/70 px-4 py-3 text-sm"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <p className="font-medium text-slate-50">{award.title}</p>
-                <span className="text-xs text-slate-400">{award.year}</span>
+        {/* Cinematic Live Stream Section */}
+        {LIVE_STREAM.isActive && (
+          <motion.section 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp}
+            className="relative mb-32 group"
+          >
+            {/* Ambient Glow */}
+            <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-r from-red-900/30 via-red-950/20 to-transparent opacity-50 blur-xl transition duration-1000 group-hover:opacity-100"></div>
+            
+            <div className="relative rounded-3xl border border-red-900/30 bg-black/40 p-1 backdrop-blur-sm">
+              <div className="flex flex-col items-center p-8 text-center pb-12">
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                  </span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-red-400">Happening Now</span>
+                </div>
+                <h2 
+                  className="mb-4 text-3xl font-light tracking-[0.05em] sm:text-4xl"
+                  style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+                >
+                  {LIVE_STREAM.title}
+                </h2>
+                <p className="max-w-md text-xs tracking-widest text-slate-400 leading-relaxed uppercase">
+                  {LIVE_STREAM.description}
+                </p>
               </div>
-              <p className="mt-1 text-xs text-slate-300">
-                {award.organization}
-                {award.location ? ` • ${award.location}` : null}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="grid gap-8 md:grid-cols-2">
-        <div className="space-y-3">
-          <SectionHeader
-            eyebrow="On stage"
-            title="Upcoming performances"
-            description="Future dates will appear here, with programs and venues."
-          />
-          <div className="space-y-3 text-sm">
-            {upcomingPerformances.map((perf) => (
-              <article
-                key={`${perf.date}-${perf.venue}`}
-                className="rounded-2xl border border-slate-800 bg-black/70 px-4 py-3"
-              >
-                <p className="text-xs text-slate-400">{perf.date}</p>
-                <p className="mt-1 font-medium text-slate-50">{perf.venue}</p>
-                <p className="text-xs text-slate-300">
-                  {perf.city}
-                  {perf.program ? ` • ${perf.program}` : null}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-        <div className="space-y-3">
-          <SectionHeader
-            eyebrow="Recently"
-            title="Selected past performances"
-          />
-          <div className="space-y-3 text-sm">
-            {selectedPastPerformances.map((perf) => (
-              <article
-                key={`${perf.date}-${perf.venue}`}
-                className="rounded-2xl border border-slate-800 bg-black/70 px-4 py-3"
-              >
-                <p className="text-xs text-slate-400">{perf.date}</p>
-                <p className="mt-1 font-medium text-slate-50">{perf.venue}</p>
-                <p className="text-xs text-slate-300">
-                  {perf.city}
-                  {perf.program ? ` • ${perf.program}` : null}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <SectionHeader
-          eyebrow="Media"
-          title="Performance videos"
-          description="Embed live performances or studio sessions from YouTube, Vimeo, or other platforms."
-        />
-        <div className="grid gap-6 md:grid-cols-2">
-          {videos.map((video) => (
-            <article
-              key={video.id}
-              className="space-y-3 rounded-3xl border border-slate-800 bg-black/70 p-4"
-            >
-              <div className="aspect-video overflow-hidden rounded-2xl bg-black/60">
+              <div className="aspect-video w-full overflow-hidden rounded-2xl bg-black border border-white/5">
                 <iframe
                   className="h-full w-full"
-                  src={video.embedUrl}
-                  title={video.title}
+                  src={LIVE_STREAM.youtubeUrl}
+                  title={LIVE_STREAM.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
               </div>
-              <div>
-                <p className="text-sm font-medium text-slate-50">{video.title}</p>
-                {video.description && (
-                  <p className="mt-1 text-xs text-slate-300">{video.description}</p>
-                )}
+            </div>
+          </motion.section>
+        )}
+
+        {/* ON STAGE - Upcoming Performances */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="mb-32"
+        >
+          <h2 className="mb-12 text-xs uppercase tracking-[0.4em] text-slate-500">On Stage</h2>
+          <div className="border-t border-white/10">
+            {upcomingPerformances.map((perf, i) => (
+              <div 
+                key={`${perf.date}-${perf.venue}`}
+                className="group flex flex-col border-b border-white/10 py-8 transition-colors hover:bg-white/[0.02] sm:flex-row sm:items-center sm:justify-between px-4 sm:px-8"
+              >
+                <div className="mb-4 sm:mb-0">
+                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{perf.date}</p>
+                  <p 
+                    className="mt-2 text-2xl font-light tracking-[0.05em] text-slate-100"
+                    style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+                  >
+                    {perf.venue}
+                  </p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <p className="text-sm tracking-widest text-slate-300 uppercase">{perf.city}</p>
+                  {perf.program && <p className="mt-1 text-xs tracking-wider text-slate-500">{perf.program}</p>}
+                </div>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* RECENTLY - Past Performances */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="mb-32"
+        >
+          <h2 className="mb-16 text-center text-xs uppercase tracking-[0.4em] text-slate-500">Recently</h2>
+          <div className="space-y-24">
+            {selectedPastPerformances.map((perf, i) => (
+              <div key={`${perf.date}-${perf.venue}`} className="grid gap-12 lg:grid-cols-12 lg:gap-24">
+                {/* Left Column: Essential Info & Link */}
+                <div className="lg:col-span-5 flex flex-col">
+                  <div>
+                    <h3 
+                      className="text-3xl font-light tracking-wide text-white lg:text-4xl"
+                      style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+                    >
+                      {perf.venue}
+                    </h3>
+                    <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-400">
+                      {perf.date} &mdash; {perf.city}
+                    </p>
+                  </div>
+                  
+                  {perf.link && (
+                    <div className="mt-8 lg:mt-auto">
+                      <a 
+                        href={perf.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-slate-300 transition-colors hover:text-white"
+                      >
+                        <span className="relative overflow-hidden">
+                          Watch Performance
+                          <span className="absolute bottom-0 left-0 h-[1px] w-full origin-left scale-x-0 bg-white transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+                        </span>
+                        <svg className="h-4 w-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                {/* Right Column: Elaborate Details & Notes */}
+                <div className="lg:col-span-7">
+                  {perf.program && (
+                    <p className="mb-8 text-sm uppercase tracking-[0.15em] text-slate-200 border-l border-white/20 pl-6">
+                      {perf.program}
+                    </p>
+                  )}
+                  {perf.note && (
+                    <p 
+                      className="text-lg leading-loose text-slate-400 font-light whitespace-pre-wrap"
+                      style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+                    >
+                      {perf.note}
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* HONORS - Awards (Redesigned) */}
+        <motion.section 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+        >
+          <h2 className="mb-16 text-center text-xs uppercase tracking-[0.4em] text-slate-500 border-b border-white/10 pb-8">Honors</h2>
+          <div className="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+            {awards.map((award) => (
+              <div 
+                key={`${award.year}-${award.title}`}
+                className="group relative flex flex-col text-center"
+              >
+                <span className="mb-4 text-xs tracking-widest text-slate-500">{award.year}</span>
+                <p 
+                  className="mb-2 text-xl font-light tracking-[0.05em] text-white"
+                  style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+                >
+                  {award.title}
+                </p>
+                <div className="mx-auto h-[1px] w-8 bg-white/20 transition-all duration-500 group-hover:w-16 group-hover:bg-white/60"></div>
+                <p className="mt-4 text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                  {award.organization}
+                  {award.location && <><br/>{award.location}</>}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+      </div>
     </div>
   );
 }
