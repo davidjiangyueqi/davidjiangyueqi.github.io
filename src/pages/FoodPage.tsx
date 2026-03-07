@@ -53,7 +53,7 @@ export function FoodPage() {
               center={[center.lat, center.lng]}
               zoom={5}
               style={{ height: 520, width: "100%" }}
-              scrollWheelZoom={false}
+              scrollWheelZoom={true}
             >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
