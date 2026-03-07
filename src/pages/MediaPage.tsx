@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { HeroHeader } from "../components/HeroHeader";
@@ -7,17 +7,15 @@ import { mediaPhotos, Photo } from "../data/media";
 export function MediaPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
 
-  const categories = [
-    { id: "piano", title: "Piano & Studios", description: "Studio sessions and performances" },
-    { id: "food-wine", title: "Food & Wine", description: "Memorable dining experiences and rare bottles" },
-    { id: "my-dishes", title: "Personal Creations", description: "Dishes I have crafted" },
-  ];
+  const shuffledPhotos = useMemo(() => {
+    return [...mediaPhotos].sort(() => Math.random() - 0.5);
+  }, []);
 
   return (
     <div className="space-y-16 pb-12">
       <HeroHeader
-        title="Media & images"
-        subtitle="A visual diary of gastronomy, music, and moments in between."
+        title="media"
+        subtitle="Moments &bull; Visions &bull; Diaries"
       />
 
       {/* Masonry Grid */}
@@ -34,34 +32,27 @@ export function MediaPage() {
           },
         }}
       >
-        {mediaPhotos
-          .sort((a, b) => {
-            const order = { "piano": 1, "food-wine": 2, "my-dishes": 3, "reviews": 4 };
-            return order[a.category] - order[b.category];
-          })
-          .map((photo) => (
+        {shuffledPhotos.map((photo) => (
             <motion.div
               key={photo.id}
-              className="break-inside-avoid"
+              className="break-inside-avoid relative"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
               }}
+              whileHover={{ scale: 1.1, zIndex: 50 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <figure
-                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-slate-800/80 bg-black/80"
+                className="relative cursor-pointer overflow-hidden rounded-2xl border border-slate-800/80 bg-black/80 shadow-lg transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] hover:border-slate-500/50"
                 onClick={() => setSelectedPhoto(photo)}
               >
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover"
                   loading="lazy"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <figcaption className="absolute bottom-0 left-0 right-0 translate-y-4 p-4 text-xs font-medium text-slate-200 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  {photo.alt}
-                </figcaption>
               </figure>
             </motion.div>
           ))}

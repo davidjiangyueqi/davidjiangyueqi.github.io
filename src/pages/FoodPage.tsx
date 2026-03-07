@@ -37,10 +37,9 @@ export function FoodPage() {
   return (
     <div className="space-y-10">
       <HeroHeader
-        title="Culinary Journeys"
-        subtitle="My culinary adventures around the world"
+        title="gastronomy"
+        subtitle="Journeys &bull; Flavors &bull; Tastes"
       />
-
       <section className="space-y-4">
         <SectionHeader
           eyebrow="Map"

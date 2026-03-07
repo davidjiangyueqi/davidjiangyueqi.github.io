@@ -117,58 +117,75 @@ export function MusicPage() {
           className="mb-32"
         >
           <h2 className="mb-16 text-center text-xs uppercase tracking-[0.4em] text-slate-500">Recently</h2>
-          <div className="space-y-24">
+          <div className="space-y-32">
             {selectedPastPerformances.map((perf, i) => (
-              <div key={`${perf.date}-${perf.venue}`} className="grid gap-12 lg:grid-cols-12 lg:gap-24">
-                {/* Left Column: Essential Info & Link */}
-                <div className="lg:col-span-5 flex flex-col">
-                  <div>
-                    <h3 
-                      className="text-3xl font-light tracking-wide text-white lg:text-4xl"
-                      style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
-                    >
-                      {perf.venue}
-                    </h3>
-                    <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-400">
-                      {perf.date} &mdash; {perf.city}
-                    </p>
+              <div key={`${perf.date}-${perf.venue}`} className="group flex flex-col relative">
+                {perf.photo && (
+                  <div className="relative w-full flex justify-center mb-8 pointer-events-none opacity-30 mix-blend-screen grayscale transition-all duration-[1.5s] ease-in-out group-hover:opacity-80 group-hover:grayscale-[20%]">
+                    <img 
+                      src={perf.photo} 
+                      alt={perf.venue} 
+                      className="max-h-[450px] w-auto object-contain transition-transform duration-[3s] ease-out group-hover:scale-[1.02]"
+                      loading="lazy"
+                      style={{ 
+                        WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 100%)', 
+                        maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 100%)' 
+                      }}
+                    />
                   </div>
-                  
-                  {perf.link && (
-                    <div className="mt-8 lg:mt-auto">
-                      <a 
-                        href={perf.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-slate-300 transition-colors hover:text-white"
-                      >
-                        <span className="relative overflow-hidden">
-                          Watch Performance
-                          <span className="absolute bottom-0 left-0 h-[1px] w-full origin-left scale-x-0 bg-white transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
-                        </span>
-                        <svg className="h-4 w-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </a>
-                    </div>
-                  )}
-                </div>
+                )}
 
-                {/* Right Column: Elaborate Details & Notes */}
-                <div className="lg:col-span-7">
-                  {perf.program && (
-                    <p className="mb-8 text-sm uppercase tracking-[0.15em] text-slate-200 border-l border-white/20 pl-6">
-                      {perf.program}
-                    </p>
-                  )}
-                  {perf.note && (
-                    <p 
-                      className="text-lg leading-loose text-slate-400 font-light whitespace-pre-wrap"
-                      style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
-                    >
-                      {perf.note}
-                    </p>
-                  )}
+                <div className="grid gap-12 lg:grid-cols-12 lg:gap-24 relative z-20">
+                  {/* Left Column: Essential Info & Link */}
+                  <div className="lg:col-span-5 flex flex-col">
+                    <div>
+                      <h3 
+                        className="text-3xl font-light tracking-wide text-white lg:text-4xl"
+                        style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+                      >
+                        {perf.venue}
+                      </h3>
+                      <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-400">
+                        {perf.date} &mdash; {perf.city}
+                      </p>
+                    </div>
+                    
+                    {perf.link && (
+                      <div className="mt-8 lg:mt-auto">
+                        <a 
+                          href={perf.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="group/link inline-flex items-center gap-4 text-xs uppercase tracking-[0.3em] text-slate-300 transition-colors hover:text-white"
+                        >
+                          <span className="relative overflow-hidden">
+                            Watch Performance
+                            <span className="absolute bottom-0 left-0 h-[1px] w-full origin-left scale-x-0 bg-white transition-transform duration-500 ease-out group/link:scale-x-100"></span>
+                          </span>
+                          <svg className="h-4 w-4 transform transition-transform duration-500 group/link:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </a>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Right Column: Elaborate Details & Notes */}
+                  <div className="lg:col-span-7">
+                    {perf.program && (
+                      <p className="mb-8 text-sm uppercase tracking-[0.15em] text-slate-200 border-l border-white/20 pl-6">
+                        {perf.program}
+                      </p>
+                    )}
+                    {perf.note && (
+                      <p 
+                        className="text-lg leading-loose text-slate-400 font-light whitespace-pre-wrap"
+                        style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+                      >
+                        {perf.note}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { bio } from "../data/bio";
 import { BioTabs } from "../components/BioTabs";
+import { HeroHeader } from "../components/HeroHeader";
 
 type Tab = "piano" | "epicure";
 
@@ -201,44 +202,11 @@ export function AboutPage() {
   return (
     <div className="space-y-12">
       {/* Animated Hero Header */}
-      <header className="mb-10 space-y-4">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.1, 0.25, 1],
-            delay: 0,
-          }}
-          className="text-xs uppercase tracking-[0.3em] text-slate-400"
-        >
-          Pianist &amp; Gastronomist
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.1, 0.25, 1],
-            delay: 0.2,
-          }}
-          className="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl"
-        >
-          {bio.name || "Pianist & Gastronomist"}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.1, 0.25, 1],
-            delay: 0.4,
-          }}
-          className="max-w-2xl text-sm text-slate-300 sm:text-base"
-        >
-          {bio.short}
-        </motion.p>
-      </header>
+      <HeroHeader 
+        title={bio.name || "david shaw"}
+        subtitle="Pianist & Gastronomist"
+        description={bio.short}
+      />
 
       {/* Tab Navigation */}
       <motion.div

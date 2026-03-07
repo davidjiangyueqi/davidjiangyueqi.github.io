@@ -5,6 +5,7 @@ export type Performance = {
   program?: string;
   note?: string;
   link?: string;
+  photo?: string;
 };
 
 export const upcomingPerformances: Performance[] = [
@@ -23,6 +24,7 @@ export const selectedPastPerformances: Performance[] = [
     city: "USC | Los Angeles, CA",
     program: "DMA Lecture Recital: David on Messiaen’s Vingt regards sur l'Enfant-Jésus",
     link: "https://youtu.be/CRK6aS7FBMo",
+    photo: "/photos/piano/church_glass.jpg",
   },
   {
     date: "March 30, 2025",
@@ -39,6 +41,7 @@ export const selectedPastPerformances: Performance[] = [
     program: "NEC Composer: Piano Music by NEC Alumni and Faculty concert",
     note: "David plays NEC alumni Chou Wen-chung's solo piano work The Willows Are New. Live-streamed by NEC.\n\nReviewed by The Boston Musical Intelligencer: “The Willows are New — one of the composer’s earliest experiments with this new approach — found a unique voice in Wenhao Shou’s profound and intimate interpretation.” (FEBRUARY 25, 2022)",
     link: "https://youtu.be/Kvuhu39f46A",
+    photo: "/photos/piano/chou-wen-chung.jpg",
   },
 ];
 

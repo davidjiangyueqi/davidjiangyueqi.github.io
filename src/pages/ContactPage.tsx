@@ -26,8 +26,8 @@ export function ContactPage() {
       <div className="pointer-events-none absolute -bottom-40 left-10 -z-10 h-[500px] w-[500px] rounded-full bg-purple-500/10 blur-[120px]" />
 
       <HeroHeader
-        title="Get in touch"
-        subtitle="For performance inquiries, collaborations, or editorial work."
+        title="contact"
+        subtitle="Connect &bull; Inquire &bull; Collaborate"
       />
 
       <motion.div 
