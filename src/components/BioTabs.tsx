@@ -9,7 +9,7 @@ interface BioTabsProps {
 
 export function BioTabs({ activeTab, onTabChange }: BioTabsProps) {
   return (
-    <div className="flex items-center gap-8 border-b border-white/10 pb-3">
+    <div className="flex items-center justify-center gap-8 border-b border-white/10 pb-3">
       <button
         onClick={() => onTabChange("piano")}
         className="relative text-sm font-medium transition-colors"
