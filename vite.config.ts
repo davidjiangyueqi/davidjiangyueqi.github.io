@@ -1,37 +1,25 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import { writeFileSync } from "fs";
-import { resolve } from "path";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import { copyFileSync } from 'fs'
 
-// Set `base` to your repository name when deploying as a project page, e.g. "/pianist-gastronomist-site/".
-// For a user/organization site (username.github.io), you can leave it as "/".
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    (() => {
-      let outDir = "docs"; // Default fallback, kept in sync with build.outDir below
-      return {
-        name: "github-pages",
-        apply: "build", // Only run during build, not during dev server
-        configResolved(config) {
-          // Capture the resolved output directory from Vite config
-          outDir = config.build.outDir;
-        },
-        closeBundle() {
-          // Create .nojekyll file to disable Jekyll processing on GitHub Pages
-          // Use the resolved output directory from config
-          const distPath = resolve(process.cwd(), outDir, ".nojekyll");
-          writeFileSync(distPath, "");
-        },
-      };
-    })(),
+    {
+      name: 'copy-pdf-worker',
+      apply: 'build',
+      generateBundle() {
+        copyFileSync(
+          'node_modules/pdfjs-dist/build/pdf.worker.min.mjs',
+          'dist/pdf.worker.min.mjs'
+        )
+      }
+    }
   ],
-  base: "/",
-  // Build directly into "docs" so GitHub Pages can serve from
-  // the /docs folder on the main branch.
-  build: {
-    outDir: "docs",
+  server: {
+    fs: {
+      strict: false,
+    },
   },
-});
-
-
+})

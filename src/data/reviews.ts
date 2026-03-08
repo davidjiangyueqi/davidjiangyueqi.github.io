@@ -1,33 +1,50 @@
+export type SlideElementType = "text" | "image" | "group";
+
+export type SlideElement = {
+  type: SlideElementType;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  content?: {
+    title?: string;
+    description?: string;
+  };
+  src?: string;
+};
+
+export type SlideLayoutType = "title" | "dish-fullscreen" | "dish-split" | "text-focused" | "unknown";
+
+export type Slide = {
+  id: string;
+  type?: SlideLayoutType;
+  elements: SlideElement[];
+};
+
 export type RestaurantReview = {
   restaurantSlug: string;
   title?: string;
   subtitle?: string;
-  images: string[];
-  backgroundColor?: string; // CSS color value (hex, rgb, or named color)
+  pdfPath?: string; // e.g. /reviews/DS Fine Dining _ Rosetta.pdf
+  images?: string[]; // Legacy
+  slides?: Slide[]; // Modern structured presentation
+  presentationWidth?: number;
+  presentationHeight?: number;
+  backgroundColor?: string;
 };
+
+import pastaBarData from "./review_pasta_bar.json";
 
 // Helper functions to encode image paths with spaces and special characters
 const vespertineImagePath = (filename: string) =>
   `/photos/reviews/Vespertine/${encodeURIComponent(filename)}`;
 
-const rosettaImagePath = (filename: string) =>
-  `/photos/reviews/Rosetta_09-06-2024/${encodeURIComponent(filename)}`;
-
 export const restaurantReviews: RestaurantReview[] = [
+  pastaBarData as RestaurantReview,
   {
     restaurantSlug: "rosetta-mexico-city",
     backgroundColor: "#000000", // black
-    images: [
-      rosettaImagePath("DS Fine Dining _ Rosetta-0.png"),
-      rosettaImagePath("DS Fine Dining _ Rosetta-1.png"),
-      rosettaImagePath("DS Fine Dining _ Rosetta-2.png"),
-      rosettaImagePath("DS Fine Dining _ Rosetta-3.png"),
-      rosettaImagePath("DS Fine Dining _ Rosetta-4.png"),
-      rosettaImagePath("DS Fine Dining _ Rosetta-5.png"),
-      rosettaImagePath("DS Fine Dining _ Rosetta-6.png"),
-      rosettaImagePath("DS Fine Dining _ Rosetta-7.png"),
-      rosettaImagePath("DS Fine Dining _ Rosetta-8.png"),
-    ],
+    pdfPath: "/reviews/DS Fine Dining _ Rosetta.pdf",
   },
   {
     restaurantSlug: "vespertine-culver-city",

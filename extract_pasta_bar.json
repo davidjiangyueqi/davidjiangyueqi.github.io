@@ -1,0 +1,259 @@
+{
+  "dimensions": {
+    "width": 1365.3333333333333,
+    "height": 1024.0
+  },
+  "slides": [
+    {
+      "slide_index": 0,
+      "elements": [
+        {
+          "id": 119,
+          "name": "David & Serena\u2026",
+          "type": "text",
+          "x": 597,
+          "y": 820,
+          "width": 171,
+          "height": 48,
+          "text": "David & Serena\nDecember 12th, 2025"
+        },
+        {
+          "id": 122,
+          "name": "Group",
+          "type": "group",
+          "x": 518,
+          "y": 238,
+          "width": 330,
+          "height": 276
+        }
+      ]
+    },
+    {
+      "slide_index": 1,
+      "elements": [
+        {
+          "id": 124,
+          "name": "Image",
+          "type": "image",
+          "x": 0,
+          "y": 57,
+          "width": 1365,
+          "height": 910,
+          "image_path": "error"
+        }
+      ]
+    },
+    {
+      "slide_index": 2,
+      "elements": [
+        {
+          "id": 126,
+          "name": "WELCOME DRINK\u2026",
+          "type": "text",
+          "x": 234,
+          "y": 81,
+          "width": 896,
+          "height": 861,
+          "text": "WELCOME DRINK\nBanana Chai Tea of Toasted Brown and White Rice, Rosemary, Cardamom, Cinnamon, Honey, and Citrus\nHorchata of Star Anise and Pistachio, B\u00e9n\u00e9dictine D.O.M liqueur\n\nFIRST BITES\nOyster Emulsion with Charred Matsutake, Matsutake Espuma, Matsutake Crisps, Lime Sorrel, and Smoked Kaluga Caviar \n\tHokkaido Scallop Ceviche in a Aonori Croustade Shell, Passionfruit Gel\u00e9e, Sea Beans, Fried Kombu, and Dulse Seaweed from Monterey Bay\n\tJamon Iberico in a Dried Cheese Tartelette, Triple Cr\u00e8me Brie Emulsion, Fermented Habanada Peppers from the Pasta Bar Garden, Shaved Perigord Black Truffle from Spain\n\nMARGARITA\u2019S SOURDOUGH\nCultured Butter, Olive Oil, Herbs\n\nSALAD\nGrilled Avocado Pur\u00e9e, Grilled Corn, Seared Tomatoes, Baby Watermelon, Baby Radishes, Miniature Cucumber with Blossom\nCorn Fritter, 12-day Curated Wagyu Oil Ponzu\n\nKANPACHI\nPistachio Skin Oil, Pistachio Slices, Mandarin Zest, Mandarin Soy Sauce, Cilantro Blossoms, Nasturtium Leaves, Tangerine Vierge\nA Ring of Roasted Pistachio Cream, Mandarin Gel, and Pistachio Butter\n\nFRENCH ONION AGNOLOTTI\nGrilled Onion, Deep Fried Cocktail Onion, Oxtail Braised in B\u0153uf Bourguignon Style and its Liquid\n36-month Comt\u00e9 Cheese Sauce\n\nGNOCCHI\nSunchoke Gnocchi, Grilled Sunchoke Cubes, Sourdough Crumbs, Iberico Pork Marinated with Curry Oil, Lime Leaves\nMadras Curry Cream, Sunflower Seeds, Basil, Tarragon, Marigold Flower, Basil Blossom\n\nCAPPELLETTI FIORE\nFlower-shaped Pasta Filled With Butternut Squash, Scallions, Ginger\nCharred Shiso, Sea Lettuce, Crispy Squash, Squash Miso Soup\n\nTAGLIATELLE\nBrioche Crumbs Infused With Mushroom, Black Trumpet, Chanterelle, Porcini\n\nBLACK COD \nLocal Black Cod Dry-aged About Three Days, Binch\u014dtan-kissed Skin\nChicken-hazelnut Jus, Pea Shoots, and Sprouts\n\nDUCK MAGRET \n3-Days Cured on Koji, 3-Days Dry-Aged, then Brush with Apple Saba\nTwice-cooked Parsnip Topped with Parsnip Pur\u00e9e, Rosemary Flowers, Thyme, and Alyssum\nMountain Rose Apple Ribbons, Parsnip Raviolo, Apple Cider Jus with Pompona Vanilla\n\nTRIPLE CREME TOAST\nBrioche Caramelized with Demerara Sugar, Triple Creme Brie, Mexican Marigold, Alyssum, Bali Salt\n\nPOPSICLE\nGranny Smith, Buttermilk \n\nSOBACHA GELATO\nOkinawa Brown Sugar Caramel, and Roasted Brown Rice\nTonka Bean Marshmallow Toasted Tableside With Binch\u014dtan\n\nMIGNARDISE\nOkinawa Sweet Potato Marshmallow Dusted with Sweet Potato and Plum Powder \nEarl Grey and Cardamom Caramel\nP\u00e2te de Fruit of Raspberry and Guava Dusted with Raspberry Sugar "
+        }
+      ]
+    },
+    {
+      "slide_index": 3,
+      "elements": [
+        {
+          "id": 130,
+          "name": "Group",
+          "type": "group",
+          "x": 104,
+          "y": 87,
+          "width": 527,
+          "height": 851
+        },
+        {
+          "id": 131,
+          "name": "For those of us who cannot yet drive, visiting Pasta Bar requires both effort and courage. It has been on my list for some time, yet it is only recently that I decided to pay a visit. After taking the metro and enduring a somewhat adventurous ride on the",
+          "type": "text",
+          "x": 685,
+          "y": 87,
+          "width": 583,
+          "height": 851,
+          "text": "For those of us who cannot yet drive, visiting Pasta Bar requires both effort and courage. It has been on my list for some time, yet it is only recently that I decided to pay a visit. After taking the metro and enduring a somewhat adventurous ride on the local bus, we finally find ourselves in front of a building complex in Encino that looks, at first glance, rather unassuming. Locating the restaurant\u2019s entrance proves a challenge, as it is tucked away on the second floor without a clear storefront. Eventually, we spot a hand-sized plate bearing the restaurant\u2019s name and buzz the door. Soon, the bartender greets us and leads us into a dimly lit speakeasy bar. As instructed, we arrive half an hour early to enjoy complimentary drinks and a trio of amuse-bouche at the speakeasy counter before being ushered into the main dining room.\n\nNo sooner do we sit at the bar than I notice a rather complex extraction equipment at the far end of the counter, where another party of two has already settled themselves. Soon, the third party arrives, and the bartender begins his show. It turns out that the equipment is what he uses to extract flavors from banana, toasted brown and white rice, rosemary, cardamom, cinnamon, honey, and citrus, resulting in an elixir of banana Chai tea. The chai base is then mixed with a horchata of star anise and pistachio, as well as an alcohol base of B\u00e9n\u00e9dictine D.O.M liqueur. Drawing on his Mexican heritage, the bartender immediately thought of horchata when assigned to create a holiday welcome drink. The result is exhilarating: the liqueur\u2019s intensity is tempered by the velvety smoothness of the rice, and the full-bodied aromatic profile sublimates the overall amalgamation, producing a harmony of richness and festive spirit.\n\nWhat these three bites share is a complete erasure of the aromas and \nflavors of otherwise precious ingredients. Each element is embedded in a base so forceful that it overwhelms everything else. The first bite features an oyster emulsion with charred Matsutake, Matsutake espuma, Matsutake crisps, lime sorrel, and smoked Kaluga caviar. In this mini composition, an excessively condensed oyster cream effectively overpowers the dish. The earthy freshness of matsutake and the oceanic umami of the caviar are both flattened by a blunt, omni-devouring salinity. Even the oyster\u2019s own distinct aura vanishes once it is reduced to this form. My palate further struggles to understand the decision to turn matsutake into crisps. It feels nothing short of sacrilegious, considering not only the price but also the value of the taste of matsutake. One might imagine a more respectful approach, preserving the oyster in its original form, paired with raw slices of matsutake and finished with caviar.\n\nThe second bite presents itself as a croustade filled with Hokkaido scallop ceviche, paired with passionfruit gel\u00e9e, sea beans, fried kombu, and Monterey Bay dulse. The croustade shell, made with aonori, imposes an arbitrary flavor profile that ultimately dominates the bite. From what I understand that the chef might want to showcase, this bite perhaps should have been something that resembles a light painting \u2014 The fresh umami and natural sweetness of the scallop rendered on an aonori canvas. Instead, the scallop ceviche is ruthlessly crushed by the shell\u2019s assertive presence. The ceviche per se lacks textural definition and flavor tension, further surrendering what little aura it possesses to the dominant shell."
+        }
+      ]
+    },
+    {
+      "slide_index": 4,
+      "elements": [
+        {
+          "id": 135,
+          "name": "Group",
+          "type": "group",
+          "x": 90,
+          "y": 105,
+          "width": 576,
+          "height": 813
+        },
+        {
+          "id": 136,
+          "name": "Concluding the trio is a tartelette featuring Jamon Iberico. In a tartelette shell made from various dried cheeses holds an emulsion of Triple Cr\u00e8me Brie, fermented Habanada peppers from the Pasta Bar garden, the Jamon Iberico slices, and shaved Perigord",
+          "type": "text",
+          "x": 716,
+          "y": 105,
+          "width": 560,
+          "height": 813,
+          "text": "Concluding the trio is a tartelette featuring Jamon Iberico. In a tartelette shell made from various dried cheeses holds an emulsion of Triple Cr\u00e8me Brie, fermented Habanada peppers from the Pasta Bar garden, the Jamon Iberico slices, and shaved Perigord black truffle from Spain. There is no textural spine scaffolding the bite as a whole. The cheese tartlette reads as mushy rather than crisp, while the thin slices of Ib\u00e9rico \u2014 stacked atop one another \u2014 negate the very purpose of slicing thin, collapsing into an almost unbearable thickness. The truffle, meant to supply a final texture of airiness, fails to contribute at all. Its texture is immediately submerged in this excessively heavy base, and its aroma too faint to rise above the dish\u2019s extreme unctuousness and salinity.\n\nThe other parties finish their amuse-bouches promptly and are soon led into the main dining space. We linger a little longer at the speakeasy, enjoying a rare moment of privacy and an easy, unhurried conversation with the host. Eventually, we are guided through a threshold and down a dark corridor. Along the way, we pass other dining spaces operated by the same group, namely the Sushi Bar and Scratch. I do not expect this sensation, but at that moment, I feel as though we have stepped into a kind of culinary theme park, where styles and identities can be switched at will, almost like in a game. This is a gesture one might associate with Gordon Ramsay rather than Jo\u00ebl Robuchon, and perhaps this distinction helps explain why Robuchon continues to maintain a far deeper reverence within the culinary world. I understand that each restaurant has its own team and identity, yet the group\u2019s pursuit of multiple cuisines under one umbrella sends a clear signal that pasta here functions as a site of experimentation. Perhaps it remains a medium rather than a root; something explored, but not something embedded in the restaurant\u2019s cultural core. That being said, curiosity stimulated, and I am eager to find out the possibility of pasta reimagined under American aesthetics. \n\nWe are seated at the far end of the bar, yet I feel no discomfort at all. I am drawn to the crescent-shaped design, which ensures that there are no bad seats but only clear, uninterrupted views of the kitchen. The counter, crafted from bronze-toned copper, casts a distinctive hue that feels quietly exhilarating. Soon, we are served a loaf of sourdough made with a sixty-year-old starter. The crust is indeed assertively crisp, though perhaps excessively so. Within, however, the bread fails to yield the supple fluffiness and resilience we anticipate; instead, both to the touch and on the palate, it feels somewhat inert, almost static. Its flavor, too, remains muted, offering little in the way of acidity or a clear expression of wheat. The accompanying pairing of butter and olive oil presents rather a dissonance. Each performs admirably on their own, yet when brought together they speak past one another, forming a forced duo that feels unresolved rather than harmonious. When we ask the chef about the reasoning behind this pairing, the response is simply that he feels it ought to be done this way, an explanation that proves unconvincing, especially given that, in practice, the combination offers little in the way of enhancement or refinement."
+        }
+      ]
+    },
+    {
+      "slide_index": 5,
+      "elements": [
+        {
+          "id": 140,
+          "name": "Group",
+          "type": "group",
+          "x": 70,
+          "y": 86,
+          "width": 621,
+          "height": 851
+        },
+        {
+          "id": 141,
+          "name": "Presented on a plate resembling a lotus leaf, the first course arrives as a bowl of salad. At the base lies a smooth avocado pur\u00e9e, accompanied by a Japanese ponzu blended, quite fancifully, with a wagyu fat emulsion. At the center rests a corn fritter b",
+          "type": "text",
+          "x": 732,
+          "y": 87,
+          "width": 564,
+          "height": 851,
+          "text": "Presented on a plate resembling a lotus leaf, the first course arrives as a bowl of salad. At the base lies a smooth avocado pur\u00e9e, accompanied by a Japanese ponzu blended, quite fancifully, with a wagyu fat emulsion. At the center rests a corn fritter ball, surrounded by grilled corn and baby watermelon. Encircling these are a miniature garden of baby radish, baby cucumber with blossoms, and delicate edible flowers. Using a salad as an opening remark may appear safe, but it is, in fact, a subtle risk. A salad allows for almost any discretionary combinations while keeping outcomes largely predictable, and diners tend to approach it with modest expectations. Yet by my standards for fine dining, playing it safe is itself a failure of intent, nothing should settle for mediocrity. What troubles me further is the menu\u2019s decision to list wagyu as the first ingredient. In reality, the wagyu appears only in the form of fat emulsified into the ponzu and lightly brushed onto the croutons. Its presence is virtually imperceptible, and using such a precious ingredient in so invisible a manner feels gratuitous rather than thoughtful. There would be an upgrade option later in the main course that introduces a refined wagyu course, perhaps the oil here is rendered from its trim. Even so, for diners who do not opt for the upgrade, the gesture feels disjointed and entirely unnecessary. Luxury, after all, is not defined by the ingredients one names, but by how one honors them, by allowing their character to speak, and by extracting from them their fullest expression.\n\nReturning to the taste of the dish, its ponzu and avocado base immediately announces a Japanese influence. The flavor profile gestures clearly toward Japanese fusion, yet the execution betrays a neglect of Japanese cuisine\u2019s most essential philosophy of subtlety and restraint. The ponzu offers not a clean acidity but a harshness. Salinity is only one component of this aggression, something in the balance of the sauce presses forward indiscriminately, striking the throat rather than refreshing the palate. The fritter, luckily, is finely made, and the assortment of vegetables is commendable. Still, taken as a whole, the dish feels like yet another attempt to hold disparate elements together by force rather than by balance.\n\nMoving on, we are presented with a kanpachi crudo, framed by a medley of \nelements that at first appear complex but revolve primarily around pistachio and mandarin. The kanpachi is diced into such small cubes that much of its texture is lost. The fish itself offers a refreshing, subtly sweet flavor, yet lacks the buttery richness one might expect, perhaps a consequence of product selection or the absence of dry-aging. The mandarin introduces a bright, fruity acidity, a standard and reliable technique, yet here it falls flat, offering little depth and leaving the overall flavor pale. The pistachio, meanwhile, contributes neither pronounced nuttiness nor a buttery aroma that might have complemented the fish. Interestingly, the chef has a tendency to incorporate croutons in many dishes where they are arguably unnecessary, yet in this instance, where a textural element could have elevated the dish, they are absent, missing an opportunity for balance. In sum, while the dish assembles many components, it ultimately lacks textural contrast and layered flavors; it aspires to subtlety but achieves only insufficiency. Given the chef\u2019s favor in the use of croutons, I feel like there is actually a right play to involve some croutons for textures. "
+        }
+      ]
+    },
+    {
+      "slide_index": 6,
+      "elements": [
+        {
+          "id": 145,
+          "name": "Group",
+          "type": "group",
+          "x": 57,
+          "y": 77,
+          "width": 634,
+          "height": 869
+        },
+        {
+          "id": 146,
+          "name": "The restaurant\u2019s name is given for a reason, and we are finally introduced to its namesake element: a four-part presentation of pasta. First to arrive is an agnolotti dish featuring oxtail. Presented on dinnerware hinting at Asian aesthetics rests a beau",
+          "type": "text",
+          "x": 719,
+          "y": 77,
+          "width": 589,
+          "height": 869,
+          "text": "The restaurant\u2019s name is given for a reason, and we are finally introduced to its namesake element: a four-part presentation of pasta. First to arrive is an agnolotti dish featuring oxtail. Presented on dinnerware hinting at Asian aesthetics rests a beautifully formed agnolotto, made with a striking black-and-white striped pasta sheet. It encapsulates oxtail braised in the style of b\u0153uf bourguignon, using French red wine and mirepoix. On the side are grilled onion, deep-fried cocktail onion, and finely julienned chives. A soulful pour of Comt\u00e9 cream concludes the dish, lending warmth through its foamy, rich texture.\n\nThe agnolotto itself is expertly crafted to a perfect al dente texture, seamlessly marrying with the exquisitely tender braised oxtail and its rich jus. The oxtail is deeply flavorful yet elegantly restrained, avoiding heaviness. The double-textured onion accompaniment is where the dish truly sings. Onion, already essential to a classic b\u0153uf bourguignon, is here given prominence, allowing its character to emerge with clarity. The grilled onion collapses into a velvety, profound sweetness with each bite, while the fried onion provides a crucial crisp contrast. The fry is impeccable \u2014 utterly grease-free and delicately brittle. While it may not reach the ethereal finesse of fine tempura, it achieves a level of refinement that feels particularly thoughtful in this context. Then there is the Comt\u00e9 sauce, serving as a catalyst that binds the components into cohesion. Its deep, complex profile of roasted nuts, brown butter, warm spice, and a hint of dried fruit suggests extended aging. Upon inquiry, the chef confirms that the Comt\u00e9 is indeed aged for 36 months, as I had guessed. The true ingenuity lies in its transformation into an ethereal, airy foam. This airy cream delivers a sophisticated umami richness that envelops each element, binding them together without overwhelming. Its salinity is precise, and its texture never overshadows the agnolotti. This agnolotti dish marks the first moment in the menu where fine dining expectations are convincingly realized.\n\nThe momentum, however, proves short-lived. Soon, the gnocchi that follows shows a \nmarked disappointment. In a black matte bowl rests sunchoke gnocchi, accompanied by grilled sunchoke cubes, sourdough crumbs, Ib\u00e9rico pork marinated in curry oil, lime leaves, Madras curry cream, sunflower seeds, basil, tarragon, marigold flowers, and basil blossoms. The chef\u2019s decision to use sunchoke \u2014 an ingredient with significantly less starch than potato \u2014 as the base for the gnocchi is, in itself, a commendable one. The consequence, however, is that the gnocchi departs from the traditional pillowy softness, instead taking on an overly rubbery texture. This, in theory, need not be a flaw. With a light, fluid sauce, the reduced starch content could have produced an exciting textural contrast. Here, notwithstanding, a pasta that already lacks softness is paired with an abundance of dry, crunchy elements, many of which carry heavy, oily flavors. The result is a dish that feels less like composed eating than an exercise in dry mastication, its rubbery resistance rendered unpleasant rather than intriguing. As noted earlier, the chef shows an evident fondness for the use of crumbs or croutons; in this context, where nearly every other component already skews dry, their presence becomes puzzling. The Ib\u00e9rico pork fares little better \u2014 overly dry and saline, it lacks grace on its own and contributes only further imbalance to the dish as a whole. That said, the pairing of curry with sunchoke is one I find conceptually compelling. For this dish to succeed, however, it would require an entirely different approach to texture, perhaps one that prioritizes contrast and flow rather than accumulation."
+        }
+      ]
+    },
+    {
+      "slide_index": 7,
+      "elements": [
+        {
+          "id": 150,
+          "name": "Group",
+          "type": "group",
+          "x": 113,
+          "y": 105,
+          "width": 593,
+          "height": 813
+        },
+        {
+          "id": 151,
+          "name": "Moving on to the third pasta dish, we are presented with a Cappelletti Fiore\u2026",
+          "type": "text",
+          "x": 737,
+          "y": 105,
+          "width": 516,
+          "height": 813,
+          "text": "Moving on to the third pasta dish, we are presented with a Cappelletti Fiore \n\u2014 a flower-shaped pasta filled with butternut squash, scallions, and ginger, served atop a base of charred shiso, sea lettuce, crispy squash, and squash miso soup. I appreciate the thoughtful pairing of the flower-shaped pasta with dinnerware adorned with floral patterns. The shape of the bowl itself also evokes a traditional Japanese serving vessel called the Warizansho. While my connection to Japanese tableware may feel somewhat tenuous, the Japanese sensibility is indeed expressed on the palate. This dish elegantly marries the sweetness of seasonal butternut squash with Asian flavors: the cappelletti is filled with what might be considered an Asian-style mirepoix of scallions and ginger, while a miso soup serves as the broth. Conceptually, this is a strong idea. Yet, the natural sweetness of the squash is not fully realized here. The miso, excessively salty and sharp, overwhelms the squash, usurping the spotlight that rightly belongs to it. Ideally, the miso should serve as a subtle backdrop, enhancing the squash rather than competing with it.\n\nAs for the final pasta course, a tagliatelle is presented. Much like the previous cappelletti celebrated autumnal squash, this dish aims to highlight winter fungi. Tagliatelle is one of my personal favorites among long, ribbon-shaped pastas. Its broad, flat surface, cut from rolled egg dough, is ideal for capturing hearty sauces like Bolognese, ensuring each bite delivers a balanced combination of pasta and flavor. This, however, is precisely what the dish lacks. In the composition in front of me, there is no sauce. While the pasta itself is well-executed, the overall texture suffers from dryness. The addition of croutons (again!), intended to provide crunchiness, only worsens the problem. Brushed with mushroom oil, the croutons offer a faint earthy aroma, yet their dryness dominates, further compromising the mouthfeel. The mushroom medley, namely of Black Trumpet, Chanterelle, and Porcini, is similarly prepared in a dry manner, losing much of the character and succulence that each variety could bring to the dish. Modern pastas may sometimes avoid traditional sauces, yet this execution is far from acceptable. A better example can be found at Citrin, where a frothy foam lightly coats the pasta, providing both moisture and an airy texture, enhancing the dish without overwhelming it. Here, by contrast, the dryness undermines the very essence of what makes tagliatelle satisfying.\n\nLooking back over the four pasta courses, a clear contrast emerges between ambition and execution. Across these courses, it becomes apparent that Pasta Bar excels when attention is paid to harmony and restraint, but the restaurant\u2019s experimentation occasionally outpaces the necessary execution. Ambitious as it is, the kitchen is still learning to calibrate its creativity so that the pasta, rather than being a vessel for ideas alone, can truly satisfy diners\u2019 palates through more approachable executions."
+        }
+      ]
+    },
+    {
+      "slide_index": 8,
+      "elements": [
+        {
+          "id": 155,
+          "name": "Group",
+          "type": "group",
+          "x": 72,
+          "y": 96,
+          "width": 606,
+          "height": 832
+        },
+        {
+          "id": 156,
+          "name": "After four pasta courses, we finally arrive at the main dishes. The first features local black cod, dry-aged for about three days, served with a chicken and hazelnut jus. Structurally, this is a relatively simple dish and one rooted in a familiar Asian a",
+          "type": "text",
+          "x": 718,
+          "y": 96,
+          "width": 575,
+          "height": 832,
+          "text": "After four pasta courses, we finally arrive at the main dishes. The first features local black cod, dry-aged for about three days, served with a chicken and hazelnut jus. Structurally, this is a relatively simple dish and one rooted in a familiar Asian approach. The pairing of a deeply umami chicken jus with a rich cod is a combination that rarely goes wrong. Seafood paired with poultry jus amplifies umami without excess, creating depth while remaining restrained. The skin is lightly seared over binch\u014dtan, achieving an ideal crispness while retaining a subtle smoky tone. The flesh itself is remarkably tender, yielding effortlessly into natural flakes under the slightest pressure of the knife. This contrast between crisp skin and delicately layered flesh is particularly satisfying. Furthermore, the accompanying peas and sprouts, presented in several forms, are a clever choice: light, clean, and understated, offering freshness without distracting from the fish. Overall, this is a dish of modest complexity but confident execution, and it succeeds precisely because it does not overreach.\n\nThe following course showcases duck. When presenting the dish, the chef delivers an impassioned explanation: the Magret duck comes from a breed traditionally raised for foie gras. After harvesting the foie gras, the breast is then utilized, making the practice sustainably responsible. He further emphasizes that the foie gras itself is produced using comparatively humane methods. While the narrative is moving on its own, it quickly becomes puzzling. There is, after all, no foie gras served in this meal. Without the dish itself to anchor the story, the explanation loses much of its persuasive power. As with the earlier wagyu reference, if the true expression of the ingredient exists only behind an additional charge, the gesture begins to feel transactional rather than generous. Supplement courses are understandable, but the core menu should remain complete and convincing on its own. Thomas Keller\u2019s restaurants provide a strong counterexample, where guests who opt out of supplements still receive a fully \nrealized experience. \n\nMore regrettably, the duck itself proves deeply disappointing. In all my years of dining, I have rarely encountered a duck breast so difficult to chew. We are told the bird has particularly thick subcutaneous fat, hence the decision to marinate it in koji for three days, followed by three days of dry-aging. Six days of aging, however, should pose no issue. After all, I have eaten duck aged fourteen or even twenty-one days at Eleven Madison Park, still supple and refined in texture. Here, the meat is not only tough but also carries a pronounced odor, suggesting a fundamental failure in preparation. Ironically, the accompaniments are excellent. One is a twice-cooked parsnip topped with parsnip pur\u00e9e, rosemary flowers, thyme, and alyssum; the other features Mountain Rose apple ribbons paired with a parsnip raviolo. The twice-cooked parsnip recalls the logic of double-fried potatoes: clean, concentrated in flavor, crisp without dryness. The apple ribbons, naturally blushed with a rosy hue, are both gorgeous in appearance and delicious, cutting through the duck\u2019s gaminess while providing freshness and acidity. The sauce \u2014 an apple cider jus infused with Pompona vanilla \u2014 is elegant and well-judged. Unfortunately, such a fine sauce is ultimately undermined by the mediocrity of the duck it is meant to elevate."
+        }
+      ]
+    },
+    {
+      "slide_index": 9,
+      "elements": [
+        {
+          "id": 163,
+          "name": "Group",
+          "type": "group",
+          "x": 135,
+          "y": 101,
+          "width": 1096,
+          "height": 822
+        }
+      ]
+    },
+    {
+      "slide_index": 10,
+      "elements": [
+        {
+          "id": 170,
+          "name": "Group",
+          "type": "group",
+          "x": 131,
+          "y": 100,
+          "width": 1104,
+          "height": 824
+        }
+      ]
+    },
+    {
+      "slide_index": 11,
+      "elements": [
+        {
+          "id": 172,
+          "name": "DSC00081.jpg",
+          "type": "image",
+          "x": 141,
+          "y": 157,
+          "width": 594,
+          "height": 710,
+          "image_path": "/photos/reviews/ds_fine_dining_pasta_bar/slide_11_shape_172.jpg"
+        },
+        {
+          "id": 173,
+          "name": "The final bites at the Pasta Bar arrive in a delicate glass jar,\u2026",
+          "type": "text",
+          "x": 778,
+          "y": 152,
+          "width": 486,
+          "height": 720,
+          "text": "The final bites at the Pasta Bar arrive in a delicate glass jar, \nreminiscent of something out of Narnia. This one, however, carries no magic, nor does its flavor. In the French culinary world, this would likely be a textbook faux pas. But this is precisely what Americans love \u2014 an unrefined, sharp, slap-in-the-face sweetness.\n\nWhile my palate still recovers from the burden of the previous marshmallow, another marshmallow arrives. This one, made from Okinawa sweet potato and dusted with sweet potato and plum powder, offers yet another example of blunt, unapologetic sweetness. The sweet potato and plum notes remain faint, failing to relieve the palate from its earlier fatigue. At the center lies a pure caramel, and I can\u2019t help but ask how one is expected to appreciate its flavor after two overly sweet marshmallows? The aroma of Earl Grey and cardamom, however, finally registers prominently and pleasantly, though the texture of the caramel contributes little to the overall experience. The final bite, like many petit fours, is a p\u00e2te de fruit made of raspberry and guava, dusted with raspberry sugar. For a typical p\u00e2te de fruit. The sweetness of a typical p\u00e2te de fruit is unremarkable, yet in the context of the full dessert journey, it becomes overwhelmingly so. Reflecting on the trio, all three share a similar soft texture. I would have welcomed more textural contrast, perhaps a chocolate bonbon or a small flour-based bite such as a canel\u00e9 or Madeleine, to provide relief and a more complete sensory arc. \n\nAs we are presented with a copy of the menu and two packets of cookies as a farewell gift, our dining experience comes to a close. Overall, the meal at Pasta Bar proceeds at a relatively brisk pace, yet the restaurant\u2019s understanding of pasta appears to remain somewhat superficial. Pasta is treated primarily as an expression of dough, without the development of a fully convincing flavor philosophy that makes sense or that unique to the restaurant. The establishment\u2019s Americanized aesthetic presents a more fundamental challenge: excessively sweet flavors and overly dry textures are recurring examples. Gaps in the staff\u2019s knowledge further reflect shortcomings in training. For instance, the agnolotti was pronounced with a baffling American mispronunciation, \u201cangolotti.\u201d Totally sacrilegious and unacceptable. Pasta Bar has recently appeared on Apple TV\u2019s Knife Edge: Chasing Michelin Stars, yet if the goal is to pursue a second Michelin star, it seems there remains a long journey ahead."
+        }
+      ]
+    }
+  ]
+}
