@@ -94,59 +94,74 @@ export function FoodPage() {
           title="Culinary timeline"
           description="Scroll through stops and jump into full reviews."
         />
-        <div className="overflow-x-auto pb-6">
+        <div className="overflow-x-auto pb-6 pt-6">
           <div className="relative min-w-full">
             {/* Timeline axis */}
             <div className="pointer-events-none absolute left-0 right-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-700" />
 
-            <div className="flex gap-8 snap-x snap-mandatory px-2">
-              {restaurants.map((restaurant, index) => (
-                <div
-                  key={restaurant.slug}
-                  className="relative flex min-w-[260px] snap-start flex-col items-center"
-                >
-                  {/* Marker on axis */}
-                  <div className="relative z-10 mb-3 flex items-center gap-2">
-                    <div className="flex h-8 items-center rounded-full bg-black/90 px-3 text-xs text-slate-200 ring-1 ring-slate-700">
-                      <span className="mr-1 text-slate-500">#{index + 1}</span>
-                      <span className="h-1 w-4 rounded-full bg-black" />
-                      {restaurant.visitedAt && (
-                        <span className="ml-2 text-[0.7rem] text-slate-300">
-                          {formatVisitedDate(restaurant.visitedAt)}
-                        </span>
-                      )}
+            <div className="flex gap-8 snap-x snap-mandatory px-4">
+              {restaurants.map((restaurant, index) => {
+                return (
+                  <div
+                    key={`${restaurant.slug}-${index}`}
+                    className="relative flex min-w-[260px] snap-start flex-col items-center"
+                  >
+                    {/* Marker on axis */}
+                    <div className="relative z-10 mb-3 flex items-center gap-2">
+                      <div className="flex h-8 items-center rounded-full bg-black/90 px-3 text-xs text-slate-200 ring-1 ring-slate-700">
+                        <span className="mr-1 text-slate-500">#{index + 1}</span>
+                        <span className="h-1 w-4 rounded-full bg-black" />
+                        {restaurant.visitedAt && (
+                          <span className="ml-2 text-[0.7rem] text-slate-300">
+                            {formatVisitedDate(restaurant.visitedAt)}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Card below axis */}
-                  <div className="mt-2 w-full max-w-xs rounded-2xl border border-slate-800 bg-black/80 px-4 py-4 text-left shadow-sm transition hover:border-slate-400/80">
-                    <p className="text-sm font-semibold text-slate-50">
-                      {restaurant.name}
-                    </p>
-                    <p className="mt-0.5 text-xs text-slate-300">
-                      {restaurant.city}, {restaurant.country}
-                      {restaurant.cuisine ? ` • ${restaurant.cuisine}` : null}
-                    </p>
-                    {restaurant.shortSummary && (
-                      <p className="mt-2 text-xs text-slate-300">
-                        {restaurant.shortSummary}
-                      </p>
-                    )}
-                    <div className="mt-3 flex items-center justify-between">
-                      <Link
-                        to={`/food/${restaurant.slug}`}
-                        className="inline-flex items-center gap-1 rounded-full bg-black px-3 py-1 text-[0.7rem] font-semibold text-slate-50 shadow-sm transition hover:bg-gray-900"
-                      >
-                        <span>Open review</span>
-                        <span aria-hidden="true">↗</span>
-                      </Link>
-                      <span className="text-[0.65rem] text-slate-500">
-                        Timeline stop
-                      </span>
+                    {/* Card below axis */}
+                    <div className="relative mt-2 w-full max-w-xs rounded-2xl border border-slate-800 bg-black/80 px-4 py-4 text-left shadow-sm transition hover:border-slate-400/80">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <p className="text-sm font-semibold text-slate-50 pr-2">
+                            {restaurant.name}
+                          </p>
+                          <p className="mt-0.5 text-xs text-slate-300">
+                            {restaurant.city}, {restaurant.country}
+                            {restaurant.cuisine ? ` • ${restaurant.cuisine}` : null}
+                          </p>
+                        </div>
+                        {restaurant.michelinStars ? (
+                          <div className="flex items-center gap-0.5 whitespace-nowrap pt-0.5">
+                            {Array.from({ length: restaurant.michelinStars }).map((_, i) => (
+                              <img key={i} src="/michelin-star.png" alt="Michelin Star" className="h-4 w-4 drop-shadow-[0_0_2px_rgba(239,68,68,0.8)]" />
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+
+                      {restaurant.shortSummary && (
+                        <p className="mt-2 text-xs text-slate-300">
+                          {restaurant.shortSummary}
+                        </p>
+                      )}
+                      
+                      <div className="mt-3 flex items-center justify-between">
+                        <Link
+                          to={`/food/${restaurant.slug}`}
+                          className="inline-flex items-center gap-1 rounded-full bg-black px-3 py-1 text-[0.7rem] font-semibold text-slate-50 shadow-sm transition hover:bg-gray-900"
+                        >
+                          <span>Open review</span>
+                          <span aria-hidden="true">↗</span>
+                        </Link>
+                        <span className="text-[0.65rem] text-slate-500">
+                          Timeline stop
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

@@ -10,6 +10,7 @@ export type Restaurant = {
   shortSummary?: string;
   rating?: string;
   visitedAt?: string; // ISO date or readable label for timeline
+  michelinStars?: number;
 };
 
 export const restaurants: Restaurant[] = [
@@ -24,6 +25,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2019-09-06",
+    michelinStars: 2,
   },
   {
     slug: "daniel-nyc",
@@ -36,6 +38,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2019-12-14",
+    michelinStars: 2,
   },
   {
     slug: "lameloise-sh",
@@ -48,6 +51,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2020-08-25",
+    michelinStars: 3,
   },
   {
     slug: "taian-table-shanghai",
@@ -60,6 +64,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2020-08-26",
+    michelinStars: 2,
   },
   {
     slug: "taian-table-shanghai",
@@ -72,6 +77,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-04-29",
+    michelinStars: 2,
   },
   {
     slug: "adam-macau",
@@ -84,6 +90,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-05-20",
+    michelinStars: 2,
   },
   {
     slug: "rad-macau",
@@ -96,6 +103,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-05-21",
+    michelinStars: 3,
   },
   {
     slug: "mizumi-vegas",
@@ -108,6 +116,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-05-22",
+    michelinStars: 0,
   },
   {
     slug: "davittorio-shanghai",
@@ -120,6 +129,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-06-03",
+    michelinStars: 2,
   },
   {
     slug: "kajitsu-nyc",
@@ -132,6 +142,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-11-16",
+    michelinStars: 1,
   },
   {
     slug: "nakazawa-nyc",
@@ -144,6 +155,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-11-16",
+    michelinStars: 1,
   },
   {
     slug: "jua-nyc",
@@ -156,6 +168,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-11-17",
+    michelinStars: 1,
   },
   {
     slug: "tsukimi-nyc",
@@ -168,6 +181,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-12-09",
+    michelinStars: 1,
   },
   {
     slug: "odo-nyc",
@@ -180,6 +194,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-12-09",
+    michelinStars: 1,
   },
   {
     slug: "contra-nyc",
@@ -192,6 +207,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2022-05-20",
+    michelinStars: 1,
   },
   {
     slug: "the-modern-nyc",
@@ -204,6 +220,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2022-05-26",
+    michelinStars: 2,
   },
   {
     slug: "ctbf-nyc",
@@ -216,6 +233,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2022-05-27",
+    michelinStars: 3,
   },
   {
     slug: "atomix-nyc",
@@ -228,6 +246,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2022-08-07",
+    michelinStars: 2,
   },
   {
     slug: "ctbf-nyc",
@@ -240,6 +259,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-01-10",
+    michelinStars: 3,
   },
   {
     slug: "labeille-nyc",
@@ -252,6 +272,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-01-11",
+    michelinStars: 1,
   },
   {
     slug: "providence-la",
@@ -264,6 +285,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-01-20",
+    michelinStars: 2,
   },
   {
     slug: "gucci-osteria-bh",
@@ -276,6 +298,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-02-05",
+    michelinStars: 1,
   },
   {
     slug: "oriole-chicago",
@@ -288,6 +311,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-02-22",
+    michelinStars: 2,
   },
   {
     slug: "ever-chicago",
@@ -300,6 +324,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-02-25",
+    michelinStars: 2,
   },
   {
     slug: "latelier-jr-miami",
@@ -312,6 +337,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-03-04",
+    michelinStars: 2,
   },
   {
     slug: "lung-king-heen-hk",
@@ -324,6 +350,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-06-07",
+    michelinStars: 2,
   },
   {
     slug: "latelier-jr-hk",
@@ -336,6 +363,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-06-07",
+    michelinStars: 3,
   },
   {
     slug: "caprice-hk",
@@ -348,6 +376,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-06-08",
+    michelinStars: 3,
   },
   {
     slug: "amber-hk",
@@ -360,6 +389,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-06-09",
+    michelinStars: 2,
   },
   {
     slug: "otto-e-mezzo-hk",
@@ -372,6 +402,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-06-09",
+    michelinStars: 3,
   },
   {
     slug: "arbor-hk",
@@ -384,6 +415,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-06-10",
+    michelinStars: 2,
   },
   {
     slug: "orsa-winston-la",
@@ -396,6 +428,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-09-27",
+    michelinStars: 1,
   },
   {
     slug: "manzke-la",
@@ -408,6 +441,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-11-02",
+    michelinStars: 1,
   },
   {
     slug: "nozawa-bar-la",
@@ -420,6 +454,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-12-19",
+    michelinStars: 1,
   },
   {
     slug: "maude-bh",
@@ -432,6 +467,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-12-21",
+    michelinStars: 1,
   },
   {
     slug: "onodera-la",
@@ -444,6 +480,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-12-29",
+    michelinStars: 1,
   },
   {
     slug: "addison-sd",
@@ -456,6 +493,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2024-01-17",
+    michelinStars: 3,
   },
   {
     slug: "gary-danko-sf",
@@ -468,6 +506,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2024-05-27",
+    michelinStars: 1,
   },
   {
     slug: "birdsong-sf",
@@ -480,6 +519,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2024-05-28",
+    michelinStars: 2,
   },
   {
     slug: "em-mexico-city",
@@ -492,6 +532,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2024-09-05",
+    michelinStars: 1,
   },
   {
     slug: "pujol-mexico-city",
@@ -504,6 +545,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2024-09-05",
+    michelinStars: 2,
   },
   {
     slug: "rosetta-mexico-city",
@@ -516,6 +558,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2024-09-06",
+    michelinStars: 1,
   },
   {
     slug: "rosetta-mexico-city",
@@ -528,6 +571,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2024-09-06",
+    michelinStars: 1,
   },
   {
     slug: "meteora-la",
@@ -540,6 +584,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2025-05-22",
+    michelinStars: 1,
   },
   {
     slug: "benu-sf",
@@ -552,6 +597,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2025-05-28",
+    michelinStars: 3,
   },
   {
     slug: "pasta-bar-encino",
@@ -564,6 +610,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2025-12-12",
+    michelinStars: 1,
   },
 ];
 
