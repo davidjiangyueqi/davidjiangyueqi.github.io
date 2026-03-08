@@ -51,7 +51,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2020-08-25",
-    michelinStars: 3,
+    michelinStars: 1,
   },
   {
     slug: "taian-table-shanghai",
@@ -116,7 +116,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2021-05-22",
-    michelinStars: 0,
+    michelinStars: 2,
   },
   {
     slug: "davittorio-shanghai",
@@ -480,7 +480,7 @@ export const restaurants: Restaurant[] = [
     shortSummary: "View the full PDF review for the complete story.",
     rating: "Review PDF available",
     visitedAt: "2023-12-29",
-    michelinStars: 1,
+    michelinStars: 2,
   },
   {
     slug: "addison-sd",
@@ -546,19 +546,6 @@ export const restaurants: Restaurant[] = [
     rating: "Review PDF available",
     visitedAt: "2024-09-05",
     michelinStars: 2,
-  },
-  {
-    slug: "rosetta-mexico-city",
-    name: "Rosetta",
-    city: "Mexico City",
-    country: "Mexico",
-    cuisine: "Modern Mexican",
-    latitude: 19.4196,
-    longitude: -99.1578,
-    shortSummary: "View the full PDF review for the complete story.",
-    rating: "Review PDF available",
-    visitedAt: "2024-09-06",
-    michelinStars: 1,
   },
   {
     slug: "rosetta-mexico-city",

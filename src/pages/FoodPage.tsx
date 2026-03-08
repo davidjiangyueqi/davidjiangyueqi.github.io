@@ -1,11 +1,31 @@
 import { Link } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from "leaflet";
+import { useEffect, useRef } from "react";
 import { HeroHeader } from "../components/HeroHeader";
 import { SectionHeader } from "../components/SectionHeader";
-import { restaurants } from "../data/restaurants";
+import { restaurants, type Restaurant } from "../data/restaurants";
 
 export function FoodPage() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Only convert purely vertical scrolls to horizontal (like mouse wheel)
+      // If deltaX != 0, user might be on a trackpad scrolling horizontally already
+      if (e.deltaY !== 0 && Math.abs(e.deltaX) === 0) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+      }
+    };
+
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    return () => el.removeEventListener("wheel", handleWheel);
+  }, []);
+
   const restaurantMarkerIcon = L.divIcon({
     className: "",
       html:
@@ -29,10 +49,20 @@ export function FoodPage() {
     });
   };
 
+  // Center of continental USA
   const center = {
-    lat: restaurants[0]?.latitude ?? 19.4177,
-    lng: restaurants[0]?.longitude ?? -99.1638,
+    lat: 39.8283,
+    lng: -98.5795,
   };
+
+  const groupedRestaurants: Record<string, Restaurant[]> = {};
+  restaurants.forEach((restaurant) => {
+    const key = `${restaurant.latitude},${restaurant.longitude}`;
+    if (!groupedRestaurants[key]) {
+      groupedRestaurants[key] = [];
+    }
+    groupedRestaurants[key].push(restaurant);
+  });
 
   return (
     <div className="space-y-10">
@@ -50,39 +80,55 @@ export function FoodPage() {
           <div className="overflow-hidden rounded-3xl border border-slate-800 bg-black/80 shadow-xl">
             <MapContainer
               center={[center.lat, center.lng]}
-              zoom={5}
+              zoom={4}
               style={{ height: 520, width: "100%" }}
               scrollWheelZoom={true}
+              worldCopyJump={true}
             >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
                 url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
               />
-              {restaurants.map((restaurant) => (
-                <Marker
-                  key={restaurant.slug}
-                  position={[restaurant.latitude, restaurant.longitude]}
-                  icon={restaurantMarkerIcon}
-                >
-                  <Popup>
-                    <div className="space-y-1 text-xs">
-                      <p className="font-semibold">{restaurant.name}</p>
-                      <p className="text-slate-600">
-                        {restaurant.city}, {restaurant.country}
-                      </p>
-                      {restaurant.cuisine && (
-                        <p className="text-slate-600">{restaurant.cuisine}</p>
-                      )}
-                      <Link
-                        to={`/food/${restaurant.slug}`}
-                        className="mt-1 inline-block text-[0.7rem] font-medium text-slate-300 underline"
-                      >
-                        View full review
-                      </Link>
-                    </div>
-                  </Popup>
-                </Marker>
-              ))}
+              {Object.entries(groupedRestaurants).map(([key, group]) => {
+                const [latStr, lngStr] = key.split(",");
+                const lat = parseFloat(latStr);
+                const lng = parseFloat(lngStr);
+                
+                return (
+                  <Marker
+                    key={key}
+                    position={[lat, lng]}
+                    icon={restaurantMarkerIcon}
+                  >
+                    <Popup>
+                      <div className="space-y-4 max-h-[260px] overflow-y-auto pr-2">
+                        {group.map((restaurant, idx) => (
+                          <div key={`${restaurant.slug}-${idx}`} className="space-y-1 text-xs border-b border-slate-200 pb-3 last:border-0 last:pb-0">
+                            <p className="font-semibold text-sm">{restaurant.name}</p>
+                            <p className="text-slate-600">
+                              {restaurant.city}, {restaurant.country}
+                            </p>
+                            {restaurant.cuisine && (
+                              <p className="text-slate-600 font-medium">{restaurant.cuisine}</p>
+                            )}
+                            {restaurant.visitedAt && (
+                              <p className="text-slate-500 italic">
+                                Visited: {formatVisitedDate(restaurant.visitedAt)}
+                              </p>
+                            )}
+                            <Link
+                              to={`/food/${restaurant.slug}`}
+                              className="mt-1.5 inline-block text-[0.7rem] font-medium text-indigo-600 hover:text-indigo-800 underline"
+                            >
+                              View full review
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </Popup>
+                  </Marker>
+                );
+              })}
             </MapContainer>
           </div>
         </div>
@@ -94,7 +140,10 @@ export function FoodPage() {
           title="Culinary timeline"
           description="Scroll through stops and jump into full reviews."
         />
-        <div className="overflow-x-auto pb-6 pt-6">
+        <div 
+          className="overflow-x-auto pb-6 pt-6"
+          ref={scrollContainerRef}
+        >
           <div className="relative min-w-full">
             {/* Timeline axis */}
             <div className="pointer-events-none absolute left-0 right-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-700" />
