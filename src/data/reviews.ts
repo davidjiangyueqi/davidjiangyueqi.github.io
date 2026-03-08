@@ -72,7 +72,7 @@ export const restaurantReviews: RestaurantReview[] = [
     pdfPath: "/reviews/DS Fine Dining _ RAD.pdf",
   },
   {
-    restaurantSlug: "mizumi-vegas",
+    restaurantSlug: "mizumi-macau",
     backgroundColor: "#000000",
     pdfPath: "/reviews/DS Fine Dining _ Mizumi.pdf",
   },
