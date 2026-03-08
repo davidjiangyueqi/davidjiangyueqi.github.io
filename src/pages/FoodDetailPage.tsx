@@ -22,14 +22,16 @@ export function FoodDetailPage() {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   
-  // State for Presentation
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [numPages, setNumPages] = useState<number>();
-  const [containerWidth, setContainerWidth] = useState(window.innerWidth);
-
   const review = restaurantReviews.find(
     (r) => r.restaurantSlug === restaurantSlug
   );
+
+  const pdfsToLoad = review?.pdfPaths || (review?.pdfPath ? [review.pdfPath] : []);
+  
+  // State for Presentation
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [pagesPerPdf, setPagesPerPdf] = useState<Record<string, number>>({});
+  const [containerWidth, setContainerWidth] = useState(window.innerWidth);
 
   // Monitor resize to pass fresh width to react-pdf Page element to keep it full bleed
   useEffect(() => {
@@ -42,9 +44,9 @@ export function FoodDetailPage() {
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
-      const { scrollTop, clientHeight } = containerRef.current;
-      const slideIndex = Math.round(scrollTop / clientHeight);
-      setCurrentSlide(slideIndex);
+      const { scrollTop, scrollHeight } = containerRef.current;
+      const slideIndex = Math.round((scrollTop / scrollHeight) * totalSlides);
+      setCurrentSlide(slideIndex >= totalSlides ? totalSlides - 1 : slideIndex);
     };
 
     const container = containerRef.current;
@@ -64,13 +66,9 @@ export function FoodDetailPage() {
 
   const backgroundColor = review.backgroundColor || "#0f172a";
 
-  const totalSlides = review.pdfPath 
-    ? numPages || 0 
+  const totalSlides = pdfsToLoad.length > 0 
+    ? Object.values(pagesPerPdf).reduce((a, b) => a + b, 0) + (pdfsToLoad.length > 1 ? pdfsToLoad.length - 1 : 0)
     : (review.slides ? review.slides.length : review.images?.length || 0);
-
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-    setNumPages(numPages);
-  }
 
   return (
     <div
@@ -120,10 +118,10 @@ export function FoodDetailPage() {
         )}
       </AnimatePresence>
 
-      {/* Snap Scrolling Container */}
+      {/* Scrolling Container */}
       <div
         ref={containerRef}
-        className="h-screen w-full snap-y snap-mandatory overflow-y-auto scroll-smooth hide-scrollbar"
+        className="h-screen w-full overflow-y-auto scroll-smooth hide-scrollbar"
         style={{
            // Hide standard scrollbar completely as we have our own visual indicators
            msOverflowStyle: 'none',
@@ -137,53 +135,66 @@ export function FoodDetailPage() {
         `}} />
 
         {/* 1. NATIVE PDF RENDERER (New Architecture) */}
-        {review.pdfPath ? (
-          <Document
-            file={review.pdfPath}
-            onLoadSuccess={onDocumentLoadSuccess}
-            loading={
-              <div className="flex h-screen w-full items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-white/40" />
-              </div>
-            }
-            className="flex flex-col items-center"
-          >
-            {Array.from(new Array(numPages), (el, index) => (
-              <section
-                key={`page_${index + 1}`}
-                className="flex h-screen w-full snap-center snap-always items-center justify-center overflow-hidden"
-              >
-                <div className="flex items-center justify-center w-full h-full shadow-2xl transition hover:scale-[1.01] duration-500 ease-out">
+        {pdfsToLoad.length > 0 ? (
+          pdfsToLoad.map((pdfPath, pdfIndex) => (
+            <Document
+              key={pdfPath}
+              file={pdfPath}
+              onLoadSuccess={({ numPages }) => setPagesPerPdf(prev => ({ ...prev, [pdfPath]: numPages }))}
+              loading={
+                <div className="flex h-screen w-full items-center justify-center">
+                  <Loader2 className="h-8 w-8 animate-spin text-white/40" />
+                </div>
+              }
+              className="flex flex-col items-center"
+            >
+              {/* Divider between visits if multiple */}
+              {pdfIndex > 0 && (
+                <div className="flex w-full items-center justify-center bg-black py-24">
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    className="text-center"
+                  >
+                    <h2 className="text-3xl font-light text-[#d8c39e] tracking-widest uppercase mb-4">Visit {pdfIndex + 1}</h2>
+                    <div className="h-px w-24 bg-[#d8c39e]/30 mx-auto my-6"></div>
+                    <p className="text-white/40 text-xs tracking-[0.3em] uppercase">Scroll down to continue</p>
+                  </motion.div>
+                </div>
+              )}
+              {Array.from(new Array(pagesPerPdf[pdfPath] || 0), (el, index) => (
+                <div
+                  key={`page_${index + 1}`}
+                  className="w-full flex flex-col items-center"
+                >
                   <Page
                     pageNumber={index + 1}
                     width={containerWidth}
                     renderTextLayer={true}
                     renderAnnotationLayer={false}
-                    className="max-h-screen object-contain drop-shadow-2xl"
+                    className="w-full"
                   />
                 </div>
-              </section>
-            ))}
-          </Document>
+              ))}
+            </Document>
+          ))
         ) : (
           // 2. LEGACY IMAGE RENDERER (Fallback)
           review.images?.map((imageSrc, imageIndex) => (
-            <section
+            <div
               key={imageIndex}
-              className="flex h-screen w-full snap-center snap-always items-center justify-center p-4 md:p-12"
+              className="flex w-full items-center justify-center"
             >
               <img
                 src={imageSrc}
                 alt={`Review page ${imageIndex + 1}`}
-                className="max-h-full max-w-full object-contain drop-shadow-2xl"
+                className="w-full h-auto"
                 loading="lazy"
               />
-            </section>
+            </div>
           ))
         )}
       </div>
     </div>
   );
 }
-
-
