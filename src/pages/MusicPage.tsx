@@ -121,11 +121,11 @@ export function MusicPage() {
             {selectedPastPerformances.map((perf, i) => (
               <div key={`${perf.date}-${perf.venue}`} className="group flex flex-col relative">
                 {perf.photo && (
-                  <div className="relative w-full flex justify-center mb-8 pointer-events-none opacity-30 mix-blend-screen grayscale transition-all duration-[1.5s] ease-in-out group-hover:opacity-80 group-hover:grayscale-[20%]">
+                  <div className="relative w-full flex justify-center mb-8 pointer-events-none opacity-80 mix-blend-screen grayscale-[20%]">
                     <img 
                       src={perf.photo} 
                       alt={perf.venue} 
-                      className="max-h-[450px] w-auto object-contain transition-transform duration-[3s] ease-out group-hover:scale-[1.02]"
+                      className="max-h-[450px] w-auto object-contain"
                       loading="lazy"
                       style={{ 
                         WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 100%)', 
@@ -200,11 +200,11 @@ export function MusicPage() {
           variants={fadeUp}
         >
           <h2 className="mb-16 text-center text-xs uppercase tracking-[0.4em] text-slate-500 border-b border-white/10 pb-8">Honors</h2>
-          <div className="grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-16">
             {awards.map((award) => (
               <div 
                 key={`${award.year}-${award.title}`}
-                className="group relative flex flex-col text-center"
+                className="group relative flex flex-col items-center text-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]"
               >
                 <span className="mb-4 text-xs tracking-widest text-slate-500">{award.year}</span>
                 <p 

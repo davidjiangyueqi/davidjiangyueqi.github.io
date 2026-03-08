@@ -116,12 +116,14 @@ export function FoodPage() {
                                 Visited: {formatVisitedDate(restaurant.visitedAt)}
                               </p>
                             )}
-                            <Link
-                              to={`/food/${restaurant.slug}`}
-                              className="mt-1.5 inline-block text-[0.7rem] font-medium text-indigo-600 hover:text-indigo-800 underline"
-                            >
-                              View full review
-                            </Link>
+                            {restaurant.rating !== "No review available" && (
+                              <Link
+                                to={`/food/${restaurant.slug}`}
+                                className="mt-1.5 inline-block text-[0.7rem] font-medium text-indigo-600 hover:text-indigo-800 underline"
+                              >
+                                View full review
+                              </Link>
+                            )}
                           </div>
                         ))}
                       </div>
@@ -149,7 +151,13 @@ export function FoodPage() {
             <div className="pointer-events-none absolute left-0 right-0 top-1/2 -translate-y-1/2 border-t border-dashed border-slate-700" />
 
             <div className="flex gap-8 snap-x snap-mandatory px-4">
-              {restaurants.map((restaurant, index) => {
+              {[...restaurants]
+                .sort((a, b) => {
+                  const dateA = new Date(a.visitedAt || "1970-01-01").getTime();
+                  const dateB = new Date(b.visitedAt || "1970-01-01").getTime();
+                  return dateA - dateB;
+                })
+                .map((restaurant, index) => {
                 return (
                   <div
                     key={`${restaurant.slug}-${index}`}
@@ -196,13 +204,17 @@ export function FoodPage() {
                       )}
                       
                       <div className="mt-3 flex items-center justify-between">
-                        <Link
-                          to={`/food/${restaurant.slug}`}
-                          className="inline-flex items-center gap-1 rounded-full bg-black px-3 py-1 text-[0.7rem] font-semibold text-slate-50 shadow-sm transition hover:bg-gray-900"
-                        >
-                          <span>Open review</span>
-                          <span aria-hidden="true">↗</span>
-                        </Link>
+                        {restaurant.rating !== "No review available" ? (
+                          <Link
+                            to={`/food/${restaurant.slug}`}
+                            className="inline-flex items-center gap-1 rounded-full bg-black px-3 py-1 text-[0.7rem] font-semibold text-slate-50 shadow-sm transition hover:bg-gray-900"
+                          >
+                            <span>Open review</span>
+                            <span aria-hidden="true">↗</span>
+                          </Link>
+                        ) : (
+                          <div />
+                        )}
                         <span className="text-[0.65rem] text-slate-500">
                           Timeline stop
                         </span>
