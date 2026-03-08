@@ -1778,10 +1778,10 @@ export const restaurants: Restaurant[] = [
   {
     slug: "sushi-inaba-2025-california",
     name: "Sushi Inaba",
-    city: "California",
+    city: "Torrance",
     country: "USA",
-    latitude: -34.6475401,
-    longitude: -58.376836,
+    latitude: 33.8397,
+    longitude: -118.3531,
     shortSummary: "No review available.",
     rating: "No review available",
     visitedAt: "2026-02-12",
