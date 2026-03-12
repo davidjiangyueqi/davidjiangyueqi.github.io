@@ -1,176 +1,141 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Instagram, Twitter, Send } from "lucide-react";
+import { Mail, Instagram, ArrowUpRight, Sparkles } from "lucide-react";
 import { HeroHeader } from "../components/HeroHeader";
 
 export function ContactPage() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
+      transition: { staggerChildren: 0.2, delayChildren: 0.1 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
   };
 
+  const links = [
+    {
+      id: "instagram",
+      label: "Instagram",
+      value: "Follow on Instagram",
+      href: "https://instagram.com/davidshaw99527",
+      icon: Instagram,
+      color: "from-pink-500 via-purple-500 to-indigo-500"
+    },
+    {
+      id: "email",
+      label: "Email",
+      value: "Send an Email",
+      href: "mailto:example@example.com",
+      icon: Mail,
+      color: "from-blue-500 via-cyan-500 to-teal-500"
+    }
+  ];
+
   return (
-    <div className="relative min-h-[80vh] space-y-12 pb-12">
-      {/* Background ambient glow specific to contact page */}
-      <div className="pointer-events-none absolute -top-40 right-10 -z-10 h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-40 left-10 -z-10 h-[500px] w-[500px] rounded-full bg-purple-500/10 blur-[120px]" />
+    <div className="relative min-h-[80vh] space-y-16 pb-24 overflow-hidden">
+      {/* Dynamic Background */}
+      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[800px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-b from-purple-500/10 to-transparent blur-[120px]" />
+      
+      { hoveredLink === 'instagram' && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-pink-500/5 via-purple-500/5 to-transparent transition-opacity duration-1000"
+        />
+      )}
+      { hoveredLink === 'email' && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-transparent transition-opacity duration-1000"
+        />
+      )}
 
       <HeroHeader
         title="contact"
         subtitle="Connect &bull; Inquire &bull; Collaborate"
       />
 
-      <motion.div 
-        className="grid gap-8 lg:grid-cols-5 lg:gap-12"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Left Column: Contact Info */}
-        <motion.div variants={itemVariants} className="space-y-8 lg:col-span-2">
-          <div className="glass-panel overflow-hidden rounded-3xl p-8 relative group h-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <h2 className="text-xl font-semibold tracking-tight text-slate-100 mb-8">Contact Information</h2>
-            
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 text-slate-300 ring-1 ring-white/10 group-hover:ring-white/20 transition-all group-hover:bg-white/10 group-hover:text-white">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wider text-slate-400">Email</p>
-                  <a href="mailto:hello@example.com" className="text-base text-slate-200 hover:text-white transition-colors">hello@example.com</a>
-                </div>
-              </div>
+      <div className="container mx-auto max-w-5xl px-4">
+        <motion.div 
+          className="grid gap-6 md:grid-cols-2"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {links.map((link) => {
+            const Icon = link.icon;
+            const isHovered = hoveredLink === link.id;
 
-              <div className="flex items-center space-x-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 text-slate-300 ring-1 ring-white/10 group-hover:ring-white/20 transition-all group-hover:bg-white/10 group-hover:text-white">
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wider text-slate-400">Location</p>
-                  <p className="text-base text-slate-200">San Francisco, CA</p>
-                </div>
-              </div>
-            </div>
+            return (
+              <motion.a
+                key={link.id}
+                href={link.href}
+                target={link.id === 'instagram' ? "_blank" : undefined}
+                rel={link.id === 'instagram' ? "noopener noreferrer" : undefined}
+                variants={itemVariants}
+                onMouseEnter={() => setHoveredLink(link.id)}
+                onMouseLeave={() => setHoveredLink(null)}
+                className="group relative block overflow-hidden rounded-3xl bg-white/[0.02] border border-white/[0.05] p-10 transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:scale-[1.02]"
+              >
+                {/* Glowing orb background effect on hover */}
+                <div className={`absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br ${link.color} opacity-0 blur-[80px] transition-opacity duration-700 group-hover:opacity-20`} />
+                
+                <div className="relative z-10 flex flex-col h-full justify-between min-h-[200px]">
+                  <div className="flex justify-between items-start">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white/70 shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:bg-white/10 group-hover:text-white">
+                      <Icon size={28} strokeWidth={1.5} />
+                    </div>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/0 text-white/0 transition-all duration-500 group-hover:bg-white/10 group-hover:text-white/90 group-hover:-rotate-12">
+                      <ArrowUpRight size={20} />
+                    </div>
+                  </div>
 
-            <div className="mt-12 pt-8 border-t border-white/10">
-              <h3 className="text-xs font-medium uppercase tracking-wider text-slate-400 mb-6">Social</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 text-slate-400 ring-1 ring-white/10 transition-all hover:bg-white/10 hover:text-white hover:ring-white/20 group/icon hover:-translate-y-1">
-                  <Instagram size={20} className="transition-transform group-hover/icon:scale-110" />
-                </a>
-                <a href="#" className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 text-slate-400 ring-1 ring-white/10 transition-all hover:bg-white/10 hover:text-white hover:ring-white/20 group/icon hover:-translate-y-1">
-                  <Twitter size={20} className="transition-transform group-hover/icon:scale-110" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+                  <div className="mt-12">
+                    <div className="flex items-center gap-3">
+                      <p className="text-2xl sm:text-3xl font-light tracking-tight text-white/90 transition-colors duration-300 group-hover:text-white break-all">
+                        {link.label}
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-        {/* Right Column: Form */}
-        <motion.div variants={itemVariants} className="lg:col-span-3">
-          <form
-            action="https://formspree.io/f/your-endpoint"
-            method="POST"
-            className="glass-panel relative rounded-3xl p-8 sm:p-10 overflow-hidden shadow-2xl"
-          >
-            {/* Subtle inner glow */}
-            <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/5 blur-[80px]" />
-            
-            <div className="space-y-6 relative z-10">
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="ml-1 text-xs font-medium uppercase tracking-wider text-slate-400">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="John Doe"
-                    className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-slate-50 placeholder-slate-600 outline-none ring-0 transition-all hover:border-white/20 focus:border-blue-500/50 focus:bg-white/5 focus:ring-4 focus:ring-blue-500/10"
+                {/* Animated bottom border line */}
+                <div className="absolute bottom-0 left-0 h-[2px] w-full bg-white/5">
+                  <motion.div 
+                    className={`h-full bg-gradient-to-r ${link.color}`}
+                    initial={{ width: "0%" }}
+                    animate={{ width: isHovered ? "100%" : "0%" }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="ml-1 text-xs font-medium uppercase tracking-wider text-slate-400">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="john@example.com"
-                    className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-slate-50 placeholder-slate-600 outline-none ring-0 transition-all hover:border-white/20 focus:border-blue-500/50 focus:bg-white/5 focus:ring-4 focus:ring-blue-500/10"
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="subject" className="ml-1 text-xs font-medium uppercase tracking-wider text-slate-400">
-                  Subject
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  placeholder="How can we help?"
-                  className="w-full rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-slate-50 placeholder-slate-600 outline-none ring-0 transition-all hover:border-white/20 focus:border-blue-500/50 focus:bg-white/5 focus:ring-4 focus:ring-blue-500/10"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="ml-1 text-xs font-medium uppercase tracking-wider text-slate-400">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  placeholder="Tell us about your project..."
-                  className="w-full resize-none rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-slate-50 placeholder-slate-600 outline-none ring-0 transition-all hover:border-white/20 focus:border-blue-500/50 focus:bg-white/5 focus:ring-4 focus:ring-blue-500/10"
-                />
-              </div>
-
-              <div className="pt-4 flex items-center justify-between">
-                <p className="text-xs text-slate-500">All fields are required.</p>
-                <button
-                  type="submit"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-white px-8 py-3 text-sm font-medium text-black transition-all hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    Send Message
-                    <motion.div
-                      animate={{ x: isHovered ? 4 : 0 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                      <Send size={16} className="transition-transform" />
-                    </motion.div>
-                  </span>
-                  {/* Hover gradient effect behind text */}
-                  <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-100 via-white to-purple-100 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </button>
-              </div>
-            </div>
-          </form>
+              </motion.a>
+            );
+          })}
         </motion.div>
-      </motion.div>
+
+        {/* Artistic Footer Message */}
+        <motion.div 
+          className="mt-32 flex flex-col items-center justify-center space-y-6 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 1 }}
+        >
+          <Sparkles className="h-6 w-6 text-white/20" />
+          <p className="max-w-xl text-lg font-light leading-relaxed text-white/40">
+            "Art is not what you see, but what you make others see."
+            <br />
+            <span className="text-sm italic text-white/20 mt-2 block">— Edgar Degas</span>
+          </p>
+        </motion.div>
+      </div>
     </div>
   );
 }
