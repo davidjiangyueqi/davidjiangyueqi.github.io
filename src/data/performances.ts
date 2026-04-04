@@ -10,9 +10,9 @@ export type Performance = {
 
 export const upcomingPerformances: Performance[] = [
   {
-    date: "2025-08-15",
-    venue: "Example Hall",
-    city: "San Francisco, CA",
+    date: "April 16, 2026",
+    venue: "Newman Hall",
+    city: "Los Angeles, CA",
     program: "Debussy Preludes Book I",
   },
 ];
