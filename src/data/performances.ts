@@ -23,8 +23,8 @@ export const upcomingPerformances: Performance[] = [
     city: "Los Angeles, CA",
     detailedProgram: [
       { composer: "BARBER", work: "Nocturne Op.33" },
-      { composer: "BUSONI", work: 'Kammer-Fantasie über Carmen, BV.284 "Sonatina No. 6"' },
       { composer: "BUSONI", work: "Turandot’s Frauengemach (Greensleeves) - From Elegies BV.249 No.4" },
+      { composer: "BUSONI", work: 'Kammer-Fantasie über Carmen, BV.284 "Sonatina No. 6"' },
       { composer: "SCRIABIN", work: "Sonata No.5" },
       { isIntermission: true },
       { composer: "POULENC", work: "Improvisation No.13" },
