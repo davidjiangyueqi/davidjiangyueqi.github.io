@@ -88,21 +88,63 @@ export function MusicPage() {
             {upcomingPerformances.map((perf, i) => (
               <div 
                 key={`${perf.date}-${perf.venue}`}
-                className="group flex flex-col border-b border-white/10 py-8 transition-colors hover:bg-white/[0.02] sm:flex-row sm:items-center sm:justify-between px-4 sm:px-8"
+                className="group flex flex-col border-b border-white/10 py-8 transition-colors hover:bg-white/[0.02] px-4 sm:px-8"
               >
-                <div className="mb-4 sm:mb-0">
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{perf.date}</p>
-                  <p 
-                    className="mt-2 text-2xl font-light tracking-[0.05em] text-slate-100"
-                    style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
-                  >
-                    {perf.venue}
-                  </p>
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between w-full">
+                  <div className="mb-6 sm:mb-0">
+                    <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{perf.date}</p>
+                    <p 
+                      className="mt-2 text-3xl font-light tracking-[0.05em] text-slate-100"
+                      style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}
+                    >
+                      {perf.venue}
+                    </p>
+                    <p className="mt-2 text-sm tracking-widest text-slate-300 uppercase">{perf.city}</p>
+                  </div>
+                  
+                  {perf.program && (
+                    <div className="sm:text-right text-left">
+                      <p className="mt-1 text-xs tracking-wider text-slate-500">{perf.program}</p>
+                    </div>
+                  )}
                 </div>
-                <div className="text-left sm:text-right">
-                  <p className="text-sm tracking-widest text-slate-300 uppercase">{perf.city}</p>
-                  {perf.program && <p className="mt-1 text-xs tracking-wider text-slate-500">{perf.program}</p>}
-                </div>
+
+                {perf.detailedProgram && (
+                   <div className="mt-10 lg:pl-4">
+                     <h4 className="mb-8 text-xs uppercase tracking-[0.4em] text-slate-500 border-l border-white/20 pl-4 py-1">Program</h4>
+                     <ul className="space-y-6">
+                       {perf.detailedProgram.map((item, idx) => (
+                         <li key={idx}>
+                           {item.isIntermission ? (
+                             <div className="my-12 text-center text-[10px] uppercase tracking-[0.5em] text-slate-600">
+                               &mdash; Intermission &mdash;
+                             </div>
+                           ) : (
+                             <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-8">
+                               <span className="sm:w-32 shrink-0 text-[11px] font-medium uppercase tracking-[0.2em] text-slate-400">
+                                 {item.composer}
+                               </span>
+                               <div className="flex flex-col">
+                                 <span className="text-xl tracking-wide text-slate-200" style={{ fontFamily: '"Cormorant Garamond", "Iowan Old Style", Georgia, serif' }}>
+                                   {item.work}
+                                 </span>
+                                 {item.movements && item.movements.length > 0 && (
+                                   <div className="mt-2 flex flex-col space-y-1">
+                                     {item.movements.map((mvt, mIdx) => (
+                                       <span key={mIdx} className="text-sm tracking-wider text-slate-500 pl-4 border-l border-white/10">
+                                         {mvt}
+                                       </span>
+                                     ))}
+                                   </div>
+                                 )}
+                               </div>
+                             </div>
+                           )}
+                         </li>
+                       ))}
+                     </ul>
+                   </div>
+                )}
               </div>
             ))}
           </div>

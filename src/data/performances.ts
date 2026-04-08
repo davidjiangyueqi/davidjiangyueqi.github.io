@@ -1,8 +1,16 @@
+export type DetailedProgramItem = {
+  composer?: string;
+  work?: string;
+  movements?: string[];
+  isIntermission?: boolean;
+};
+
 export type Performance = {
   date: string;
   venue: string;
   city: string;
   program?: string;
+  detailedProgram?: DetailedProgramItem[];
   note?: string;
   link?: string;
   photo?: string;
@@ -13,7 +21,19 @@ export const upcomingPerformances: Performance[] = [
     date: "April 16, 2026",
     venue: "Newman Hall",
     city: "Los Angeles, CA",
-    program: "Debussy Preludes Book I",
+    detailedProgram: [
+      { composer: "BARBER", work: "Nocturne Op.33" },
+      { composer: "BUSONI", work: 'Kammer-Fantasie über Carmen, BV.284 "Sonatina No. 6"' },
+      { composer: "BUSONI", work: "Turandot’s Frauengemach (Greensleeves) - From Elegies BV.249 No.4" },
+      { composer: "SCRIABIN", work: "Sonata No.5" },
+      { isIntermission: true },
+      { composer: "POULENC", work: "Improvisation No.13" },
+      { composer: "POULENC", work: "Improvisation No.15" },
+      { composer: "RAVEL", work: "Sonatine", movements: ["I. Modéré", "II. Mouvement de Menuet", "III. Animé"] },
+      { composer: "RAMEAU", work: "Les Tendres Plaintes" },
+      { composer: "RAMEAU", work: "Les Boréades (Transcribed by Ólafsson)" },
+      { composer: "PROKOFIEV", work: "Piano Sonata No. 7 in B-Flat Major, Op. 83", movements: ["I. Allegro inquieto", "II. Andante caloroso", "III. Precipitato"] }
+    ]
   },
 ];
 
