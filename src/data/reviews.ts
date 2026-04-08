@@ -59,7 +59,12 @@ export const restaurantReviews: RestaurantReview[] = [
   {
     restaurantSlug: "taian-table-shanghai",
     backgroundColor: "#000000",
-    pdfPaths: ["/reviews/DS Fine Dining _ Taian Table.pdf", "/reviews/DS Fine Dining _ Taian Table II.pdf"],
+    pdfPath: "/reviews/DS Fine Dining _ Taian Table.pdf",
+  },
+  {
+    restaurantSlug: "taian-table-2021-shanghai",
+    backgroundColor: "#000000",
+    pdfPath: "/reviews/DS Fine Dining _ Taian Table II.pdf",
   },
   {
     restaurantSlug: "adam-macau",
@@ -119,7 +124,12 @@ export const restaurantReviews: RestaurantReview[] = [
   {
     restaurantSlug: "ctbf-nyc",
     backgroundColor: "#000000",
-    pdfPaths: ["/reviews/DS Fine Dining _ CTBF II.pdf", "/reviews/DS Fine Dining _ CTBF III.pdf"],
+    pdfPath: "/reviews/DS Fine Dining _ CTBF II.pdf",
+  },
+  {
+    restaurantSlug: "ctbf-2023-nyc",
+    backgroundColor: "#000000",
+    pdfPath: "/reviews/DS Fine Dining _ CTBF III.pdf",
   },
   {
     restaurantSlug: "atomix-nyc",
@@ -255,6 +265,31 @@ export const restaurantReviews: RestaurantReview[] = [
     restaurantSlug: "pasta-bar-encino",
     backgroundColor: "#000000",
     pdfPath: "/reviews/DS Fine Dining _ Pasta _ Bar.pdf",
+  },
+  {
+    restaurantSlug: "bridges-2025-new-york",
+    backgroundColor: "#000000",
+    pdfPath: "/reviews/DS Fine Dining _ Bridges.pdf",
+  },
+  {
+    restaurantSlug: "camphor-la",
+    backgroundColor: "#000000",
+    pdfPath: "/reviews/DS Fine Dining _ Camphor.pdf",
+  },
+  {
+    restaurantSlug: "c-sar-2025-new-york",
+    backgroundColor: "#000000",
+    pdfPath: "/reviews/DS Fine Dining _ César.pdf",
+  },
+  {
+    restaurantSlug: "quince-2025-california",
+    backgroundColor: "#000000",
+    pdfPath: "/reviews/DS Fine Dining _ Quince.pdf",
+  },
+  {
+    restaurantSlug: "the-modern-2026-nyc",
+    backgroundColor: "#000000",
+    pdfPath: "/reviews/DS Fine Dining _ The Modern III.pdf",
   },
 ];
 
